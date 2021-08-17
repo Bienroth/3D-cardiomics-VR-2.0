@@ -19,8 +19,6 @@ public class SliceBehavior : MonoBehaviour
     }
     void Update()
     {
-        //Control of kinematic if GameObject is not currently grabbed
-        _ = transform.GetComponent<OVRGrabbable>().isGrabbed ? GetComponent<Rigidbody>().isKinematic = false : GetComponent<Rigidbody>().isKinematic = true;
         if (transform.GetComponent<OVRGrabbable>().isGrabbed)
         {
             if (transform.parent.parent.name == "HeartCopy(Clone)")
@@ -73,10 +71,6 @@ public class SliceBehavior : MonoBehaviour
     private void OnCollisionExit(Collision col)
     {
         selected = false;
-    }
-    public void kinematicOff()
-    {
-        GetComponent<Rigidbody>().isKinematic = false;
     }
 
 }

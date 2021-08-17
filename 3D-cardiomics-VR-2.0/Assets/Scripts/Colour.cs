@@ -125,7 +125,6 @@ public class Colour : MonoBehaviour
     {
         uploadfilelog = gameObject.GetComponent<UploadFileLog>();
         csvName = uploadfilelog.getFileName();
-        Debug.Log("fdhdishsfiehfioehwofih oieh oiwfeh ofihwe oifhoiwe hfoiwhe oifhw eiofh ewiohf iohwe oihwe oifh");
         Debug.Log(csvName);
         expCopy = new float[alength];
         expOriginal = new float[alength];

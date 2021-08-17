@@ -6,6 +6,7 @@ public class InputControl : MonoBehaviour
 {
     //Classes
     private SliceBehavior[] slices;
+    private ObjectManager objectManager;
     private HandleBehavior handle;
     private Explode explode;
     private Colour colour;
@@ -30,6 +31,11 @@ public class InputControl : MonoBehaviour
     public GameObject geneMenu;
     public GameObject ColorButtonBig;
     private GameObject heart_handle;
+    public GameObject head;
+
+    public GameObject modelExtensionPrefab;
+    public GameObject modelPrefab;
+
 
     //LocalAvatar and Scene Elements
     public Camera cam; //CenterEye
@@ -43,6 +49,9 @@ public class InputControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        objectManager = GameObject.Find("ScriptHolder").GetComponent<ObjectManager>();
+        objectManager.loadModel();
+
         slices = Object.FindObjectsOfType<SliceBehavior>();
         handle = Object.FindObjectOfType<HandleBehavior>();
         keyboardScript = Object.FindObjectOfType<Keyboard>();
@@ -65,6 +74,7 @@ public class InputControl : MonoBehaviour
 
     }
 
+
     // ControllerInput by buttons
     private void controllerInput()
     {
@@ -80,19 +90,7 @@ public class InputControl : MonoBehaviour
     {
         colour.resetColour();
     }
-    IEnumerator waitFunction()
-    {
-        yield return new WaitForSeconds(0.2f);
-        OVRInput.SetControllerVibration(0f, 0f, OVRInput.Controller.RTouch);
-    }
 
-    public void slicesKinematicOff()
-    {
-        foreach (SliceBehavior slice in slices)
-        {
-            slice.kinematicOff();
-        }
-    }
     // Detection of single slices for group selection
     private void sliceDetector()
     {
@@ -103,10 +101,6 @@ public class InputControl : MonoBehaviour
             {
                 if (slice.selected == true)
                 {
-                    // Haptic Feedback (Vibration)
-                    // OVRInput.SetControllerVibration(0.2f, 0.2f, OVRInput.Controller.RTouch);
-                    // waitFunction();
-
                     if (slice.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
                     {
                         slice.GetComponent<Renderer>().material = defaultMaterial;
@@ -259,6 +253,7 @@ public class InputControl : MonoBehaviour
         expand = false;
 
     }
+
     public void callGeneMenu()
     {
         if (geneMenu.activeSelf)
