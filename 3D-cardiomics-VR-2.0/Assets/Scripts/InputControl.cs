@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class InputControl : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class InputControl : MonoBehaviour
     private Colour colour;
     //Values
     private float fscale, initalize, start, save;
-    private bool expand = false;
+    private int currentSelection;
     //UI Elements
     public InputField inputfield;
     private Keyboard keyboardScript;
@@ -20,6 +22,8 @@ public class InputControl : MonoBehaviour
     //Bools
     private bool menuReset = true;
     private bool currentlyResize = false;
+    private bool expand = false;
+    private bool highlighterActive= false;    
     //GameObjects
     public GameObject settingsMenu;
     public GameObject player;
@@ -32,7 +36,6 @@ public class InputControl : MonoBehaviour
     public GameObject ColorButtonBig;
     private GameObject heart_handle;
     public GameObject head;
-
     public GameObject modelExtensionPrefab;
     public GameObject modelPrefab;
 
@@ -49,25 +52,51 @@ public class InputControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        objectManager = GameObject.Find("ScriptHolder").GetComponent<ObjectManager>();
-        objectManager.loadModel();
-
-        slices = Object.FindObjectsOfType<SliceBehavior>();
-        handle = Object.FindObjectOfType<HandleBehavior>();
-        keyboardScript = Object.FindObjectOfType<Keyboard>();
-        explode = Object.FindObjectOfType<Explode>();
+        slices = UnityEngine.Object.FindObjectsOfType<SliceBehavior>();
+        handle = UnityEngine.Object.FindObjectOfType<HandleBehavior>();
+        keyboardScript = UnityEngine.Object.FindObjectOfType<Keyboard>();
+        explode = UnityEngine.Object.FindObjectOfType<Explode>();
         heart_handle = GameObject.Find("Heart_Grabber");
-        colour = Object.FindObjectOfType<Colour>();
+        colour = UnityEngine.Object.FindObjectOfType<Colour>();
 
         foreach (SliceBehavior slice in slices) slice.GetComponent<Renderer>().material = defaultMaterial;
     }
 
     void Update()
     {
-        controllerInput();
-        interactionCheck();
-        menuCheck();
-        detectorActivation();
+        if (highlighterActive) {
+
+            if (OVRInput.GetUp(OVRInput.Button.One))
+            {
+                colour.setSelectModel(GameObject.Find("Highlighter").transform.root.name);
+                GameObject.Find("Highlighter").SetActive(false);
+                highlighterActive = false;
+            }
+
+            if (OVRInput.GetUp(OVRInput.Button.Four))
+            {
+                currentSelection = Int16.Parse(GameObject.Find("Highlighter").transform.root.name);
+                GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(false);
+                currentSelection ++;
+
+                if(GameObject.Find(currentSelection.ToString()) != null) GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(true);
+                else
+                {
+                    if (GameObject.Find("Extensions") != null)
+                    {
+                        Debug.Log("hedheudeu");
+                        GameObject.Find("Extensions").transform.Find("Highlighter").transform.gameObject.SetActive(true);
+                    }
+                    currentSelection = 0;
+                }
+            }
+        }
+        else if (!highlighterActive){
+            controllerInput();
+            interactionCheck();
+            menuCheck();
+            detectorActivation(); 
+        }
         if (GameObject.Find("hands:b_r_index1") != null) GameObject.Find("Detector_R").transform.position = GameObject.Find("hands:b_r_index_ignore").transform.position;
         if (GameObject.Find("hands:b_l_index1") != null) GameObject.Find("Detector_L").transform.position = GameObject.Find("hands:b_l_index_ignore").transform.position;
 
@@ -80,7 +109,7 @@ public class InputControl : MonoBehaviour
     {
         if (OVRInput.Get(OVRInput.Button.Two)) callReset();
         if (OVRInput.GetUp(OVRInput.Button.Start)) callGeneMenu();
-        if (OVRInput.GetUp(OVRInput.Button.Four)) callOptions();
+        if (OVRInput.GetUp(OVRInput.Button.Four)) callHighlighter();
         if (OVRInput.GetUp(OVRInput.Button.Three)) callExplode();
         if (OVRInput.GetUp(OVRInput.Button.One)) sliceDetector();
 
@@ -89,6 +118,17 @@ public class InputControl : MonoBehaviour
     public void resetColour()
     {
         colour.resetColour();
+    }
+
+    private void callHighlighter()
+    {
+        highlighterActive = true;
+
+        if(GameObject.Find("Extensions")!= null){
+
+            GameObject.Find("Extensions").transform.Find("Highlighter").transform.gameObject.SetActive(true);
+
+        }
     }
 
     // Detection of single slices for group selection
@@ -104,12 +144,12 @@ public class InputControl : MonoBehaviour
                     if (slice.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
                     {
                         slice.GetComponent<Renderer>().material = defaultMaterial;
-                        Object.FindObjectOfType<Selection>().outRemove(slice.name, 1);
+                        UnityEngine.Object.FindObjectOfType<Selection>().outRemove(slice.name, 1);
                     }
                     else if (slice.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
                     {
                         slice.GetComponent<Renderer>().material = highlightMaterialGroup1;
-                        Object.FindObjectOfType<Selection>().outAdd(slice.name, 1);
+                        UnityEngine.Object.FindObjectOfType<Selection>().outAdd(slice.name, 1);
                     }
                 }
             }
@@ -129,12 +169,12 @@ public class InputControl : MonoBehaviour
                     else if (slice.GetComponent<Renderer>().material.name == "HighlightGroup2 (Instance)")
                     {
                         slice.GetComponent<Renderer>().material = defaultMaterial;
-                        Object.FindObjectOfType<Selection>().outRemove(slice.name, 2);
+                        UnityEngine.Object.FindObjectOfType<Selection>().outRemove(slice.name, 2);
                     }
                     else if (slice.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
                     {
                         slice.GetComponent<Renderer>().material = highlightMaterialGroup2;
-                        Object.FindObjectOfType<Selection>().outAdd(slice.name, 2);
+                        UnityEngine.Object.FindObjectOfType<Selection>().outAdd(slice.name, 2);
                     }
                 }
             }
@@ -217,7 +257,7 @@ public class InputControl : MonoBehaviour
     {
         for (int i = 0; i < 20; i++)
         {
-            slices = Object.FindObjectsOfType<SliceBehavior>();
+            slices = UnityEngine.Object.FindObjectsOfType<SliceBehavior>();
 
             Destroy(GameObject.Find("HeartCopy(Clone)"));
 
@@ -238,7 +278,7 @@ public class InputControl : MonoBehaviour
 
     public void callResetHeatMap()
     {
-        slices = Object.FindObjectsOfType<SliceBehavior>();
+        slices = UnityEngine.Object.FindObjectsOfType<SliceBehavior>();
 
         Destroy(GameObject.Find("HeartCopy(Clone)"));
 
@@ -285,10 +325,7 @@ public class InputControl : MonoBehaviour
             menuReset = false;
         }
     }
-    public void callOptions()
-    {
-        settingsMenu.SetActive(true);
-    }
+
     public void combinedView()
     {
         if (GameObject.Find("HeartCopy(Clone)") == null)

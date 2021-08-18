@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\SettingsMenu.cs" />
     <Compile Include="Assets\Scripts\SideBoardManager.cs" />
     <Compile Include="Assets\Scripts\SliceBehavior.cs" />
+    <Compile Include="Assets\Scripts\StoreDataManager.cs" />
     <Compile Include="Assets\Scripts\TextFileManager.cs" />
     <Compile Include="Assets\Scripts\TouchGeneralButton.cs" />
     <Compile Include="Assets\Scripts\Touchbutton.cs" />
