@@ -62,26 +62,36 @@ public class InputControl : MonoBehaviour
 
             if (OVRInput.GetUp(OVRInput.Button.One))
             {
-                colour.setSelectModel(GameObject.Find("Highlighter").transform.root.name);
-                GameObject.Find("Highlighter").SetActive(false);
-                highlighterActive = false;
+                if (GameObject.Find("Highlighter") != null)
+                {
+                    colour.setSelectModel(GameObject.Find("Highlighter").transform.root.name);
+                    GameObject.Find("Highlighter").SetActive(false);
+                    highlighterActive = false;
+                }
+                else callHighlighter();
             }
 
             if (OVRInput.GetUp(OVRInput.Button.Four))
             {
-                currentSelection = Int16.Parse(GameObject.Find("Highlighter").transform.root.name);
-                GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(false);
-                currentSelection ++;
+                if (GameObject.Find("Highlighter") != null)
+                {
+                    currentSelection = Int16.Parse(GameObject.Find("Highlighter").transform.root.name);
+                    GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(false);
+                    currentSelection++;
 
-                if(GameObject.Find(currentSelection.ToString()) != null) GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(true);
+                    if (GameObject.Find(currentSelection.ToString()) != null)
+                    {
+                        GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(true);
+                    }
+                    else
+                    {
+                        callHighlighter();
+                        currentSelection = 0;
+                    }
+                }
                 else
                 {
-                    if (GameObject.Find("Extensions") != null)
-                    {
-                        Debug.Log("hedheudeu");
-                        GameObject.Find("Extensions").transform.Find("Highlighter").transform.gameObject.SetActive(true);
-                    }
-                    currentSelection = 0;
+                    callHighlighter();
                 }
             }
         }

@@ -78,7 +78,6 @@
     <Compile Include="Assets\Scripts\Keyboard.cs" />
     <Compile Include="Assets\Scripts\KeyboardTouch.cs" />
     <Compile Include="Assets\Scripts\LogFile.cs" />
-    <Compile Include="Assets\Scripts\MultipleModelManager.cs" />
     <Compile Include="Assets\Scripts\ObjectManager.cs" />
     <Compile Include="Assets\Scripts\PanelScript.cs" />
     <Compile Include="Assets\Scripts\PressHandler.cs" />
@@ -87,7 +86,6 @@
     <Compile Include="Assets\Scripts\ScreenshotManager.cs" />
     <Compile Include="Assets\Scripts\Selection.cs" />
     <Compile Include="Assets\Scripts\SettingsManager.cs" />
-    <Compile Include="Assets\Scripts\SettingsMenu.cs" />
     <Compile Include="Assets\Scripts\SideBoardManager.cs" />
     <Compile Include="Assets\Scripts\SliceBehavior.cs" />
     <Compile Include="Assets\Scripts\StoreDataManager.cs" />

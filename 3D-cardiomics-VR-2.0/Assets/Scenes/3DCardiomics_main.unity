@@ -8272,6 +8272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropdown: {fileID: 0}
+  copyCount: 1
 --- !u!114 &530951969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10612,6 +10613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deviceText: {fileID: 1451139163}
   settingsMenu: {fileID: 719266626}
+  deviceName: 
 --- !u!1 &721724031
 GameObject:
   m_ObjectHideFlags: 0
