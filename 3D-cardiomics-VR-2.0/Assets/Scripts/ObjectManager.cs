@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ObjectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        setCounterText();
     }
 
     private void countPiecesOfObjects(GameObject obj)
@@ -40,16 +42,10 @@ public class ObjectManager : MonoBehaviour
         return ModelObjects.IndexOf(obj);
     }
 
-    public int getNumberofCopy(string name)
-    {
-        return ModelObjects.IndexOf(GameObject.Find(name));
-    }
-
     public void initiateModel()
     {
         loadModel();  
         countPiecesOfObjects(temp);
-
     }
 
     public void loadModel()
@@ -63,7 +59,25 @@ public class ObjectManager : MonoBehaviour
         temp2.transform.localPosition = new Vector3(-500, 0, 0);
         var index = addCopytoList(temp);
         temp.name = index.ToString();
-    }
+        setCounterText();
+
+
+        foreach (Transform childchild in temp2.transform)
+        {
+            foreach (Transform childchilds in childchild.transform)
+            {
+                childchilds.gameObject.AddComponent<Rigidbody>();
+                StartCoroutine(delay());
+                childchilds.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                childchilds.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                StartCoroutine(delay());
+                childchilds.gameObject.AddComponent<OVRGrabbable>();
+                childchilds.gameObject.GetComponent<OVRGrabbable>().enabled = true;  
+            }
+        }
+    }        
+
+
 
     public int getPiecesOfObject()
     {
@@ -78,11 +92,20 @@ public class ObjectManager : MonoBehaviour
 
     public void deleteModel()
     {
-
+        int temp = ModelObjects.Count - 1;
+        ModelObjects.Remove(GameObject.Find(temp.ToString()));
+        Destroy(GameObject.Find(temp.ToString()));
+        offset -=2;
+        setCounterText();
     }
 
-    private void setCounterText(bool addOrDelete)
+    private void setCounterText()
     {
+        GameObject.Find("ModelDisplayText").GetComponent<Text>().text = ModelObjects.Count.ToString();
+    }
 
+    IEnumerator delay()
+    {
+        yield return 0;
     }
 }

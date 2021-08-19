@@ -8,9 +8,7 @@ public class InputControl : MonoBehaviour
 {
     //Classes
     private SliceBehavior[] slices;
-    private ObjectManager objectManager;
     private HandleBehavior handle;
-    private Explode explode;
     private Colour colour;
     //Values
     private float fscale, initalize, start, save;
@@ -36,9 +34,6 @@ public class InputControl : MonoBehaviour
     public GameObject ColorButtonBig;
     private GameObject heart_handle;
     public GameObject head;
-    public GameObject modelExtensionPrefab;
-    public GameObject modelPrefab;
-
 
     //LocalAvatar and Scene Elements
     public Camera cam; //CenterEye
@@ -55,7 +50,6 @@ public class InputControl : MonoBehaviour
         slices = UnityEngine.Object.FindObjectsOfType<SliceBehavior>();
         handle = UnityEngine.Object.FindObjectOfType<HandleBehavior>();
         keyboardScript = UnityEngine.Object.FindObjectOfType<Keyboard>();
-        explode = UnityEngine.Object.FindObjectOfType<Explode>();
         heart_handle = GameObject.Find("Heart_Grabber");
         colour = UnityEngine.Object.FindObjectOfType<Colour>();
 

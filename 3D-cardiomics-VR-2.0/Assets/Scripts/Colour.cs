@@ -132,10 +132,7 @@ public class Colour : MonoBehaviour
         objectManager = GameObject.Find("ScriptHolder").GetComponent<ObjectManager>();
         objectManager = GameObject.Find("ScriptHolder").GetComponent<ObjectManager>();
         objectManager.initiateModel();
-        objectManager.loadModel();
-        objectManager.loadModel();
-        objectManager.loadModel();
-        objectManager.loadModel();
+
 
         totalNumberPieces = objectManager.getPiecesOfObject();
         
