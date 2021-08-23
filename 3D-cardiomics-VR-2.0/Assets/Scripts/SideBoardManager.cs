@@ -38,7 +38,6 @@ public class SideBoardManager : MonoBehaviour
 
     public void expandSideBar()
     {
-        Debug.Log("jfeofjeojfoejfoj");
         switch (expanded)
         {
             case (true):    sideBar.transform.localPosition = new Vector3(17,0,0);

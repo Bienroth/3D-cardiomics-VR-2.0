@@ -72,7 +72,7 @@
     <Compile Include="Assets\Scripts\FileUploadManager.cs" />
     <Compile Include="Assets\Scripts\GeneSet.cs" />
     <Compile Include="Assets\Scripts\HandleBehavior.cs" />
-    <Compile Include="Assets\Scripts\HapticFeedback.cs" />
+    <Compile Include="Assets\Scripts\HapticFeedbackManager.cs" />
     <Compile Include="Assets\Scripts\HoverManager.cs" />
     <Compile Include="Assets\Scripts\InputControl.cs" />
     <Compile Include="Assets\Scripts\Keyboard.cs" />

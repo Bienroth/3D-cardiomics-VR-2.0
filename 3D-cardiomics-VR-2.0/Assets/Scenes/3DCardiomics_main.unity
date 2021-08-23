@@ -7981,9 +7981,7 @@ GameObject:
   - component: {fileID: 530951963}
   - component: {fileID: 530951964}
   - component: {fileID: 530951965}
-  - component: {fileID: 530951966}
   - component: {fileID: 530951967}
-  - component: {fileID: 530951968}
   - component: {fileID: 530951969}
   m_Layer: 0
   m_Name: ScriptHolder
@@ -8228,18 +8226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainmenu: {fileID: 870500914}
   csvMenu: {fileID: 968702785}
---- !u!114 &530951966
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530951952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f13c52380717946adedd18b3f7e089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &530951967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8259,18 +8245,6 @@ MonoBehaviour:
   geneMenuBtn: {fileID: 1615392539}
   setttingsMenuBtn: {fileID: 310433340}
   dataMenuBtn: {fileID: 1209818830}
---- !u!114 &530951968
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530951952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c7b94ffb0a06b541a670ab3e4474c8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &530951969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9808,9 +9782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499e3127b4bff114cb4901ff8c195140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyboard: {fileID: 0}
-  keyboardHandle: {fileID: 0}
-  menuHandle: {fileID: 0}
 --- !u!1 &660523626
 GameObject:
   m_ObjectHideFlags: 0
@@ -21489,7 +21460,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
