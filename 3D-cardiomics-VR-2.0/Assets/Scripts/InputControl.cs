@@ -327,6 +327,16 @@ public class InputControl : MonoBehaviour
             keyboard.SetActive(true);
             keyboardScript.wake();
             menuReset = false;
+
+            Vector3 playerPos = player.transform.position;
+            Vector3 playerDirection = player.transform.forward;
+            Quaternion playerRotation = player.transform.rotation;
+            float spawnDistance = 0.5f;
+
+            Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
+
+            keyboard.transform.position = spawnPos;
+            keyboard.transform.rotation = playerRotation;
         }
     }
 
