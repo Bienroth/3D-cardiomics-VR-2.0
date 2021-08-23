@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
+
+
     void OnCollisionEnter(Collision collision)
     {
 
@@ -23,6 +25,22 @@ public class SettingsManager : MonoBehaviour
                         break;
             }
         }
+
+        if (gameObject.name == "DecreaseVibration")
+        {
+          if(GameObject.Find("Detector_R") != null){
+                GameObject.Find("Detector_R").GetComponent<HapticFeedbackManager>().decreaseVibration();
+            }
+        }
+
+        if (gameObject.name == "IncreaseVibration")
+        {
+            if (GameObject.Find("Detector_R") != null)
+            {
+                GameObject.Find("Detector_R").GetComponent<HapticFeedbackManager>().increaseVibration();
+            }
+        }
+
 
     }
 }
