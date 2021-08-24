@@ -5,7 +5,6 @@ public class UploadFileLog : MonoBehaviour
 {
     private string path;
     // bool which menu active
-    private bool mainactive = true;
     public GameObject mainmenu;
     public GameObject csvMenu;
 

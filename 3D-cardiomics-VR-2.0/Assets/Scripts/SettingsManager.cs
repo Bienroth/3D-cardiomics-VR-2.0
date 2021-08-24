@@ -7,11 +7,6 @@ public class SettingsManager : MonoBehaviour
 
     private HapticFeedbackManager hfmanager;
 
-    private void Start()
-    {
-
-    }
-
 
     void OnCollisionEnter(Collision collision)
     {

@@ -198,7 +198,7 @@ public class Colour : MonoBehaviour
         var compare = GameObject.Find("Compare").GetComponentInChildren<Compare>();
         var dpanel = GameObject.Find("Dropdown/dList/dContent");
 
-        scripts.GetComponent<Explode>().Reset();
+        // TBD Explode Reset
 
         GameObject.Find("MainCamera").GetComponent<Selection>().Reset();
         if (compare) compare.reset();

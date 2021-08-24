@@ -67,7 +67,6 @@
     <Compile Include="Assets\Scripts\Boomlagoon\JSONObject.cs" />
     <Compile Include="Assets\Scripts\Colour.cs" />
     <Compile Include="Assets\Scripts\Compare.cs" />
-    <Compile Include="Assets\Scripts\Explode.cs" />
     <Compile Include="Assets\Scripts\FileUpload.cs" />
     <Compile Include="Assets\Scripts\FileUploadManager.cs" />
     <Compile Include="Assets\Scripts\GeneSet.cs" />
@@ -87,7 +86,6 @@
     <Compile Include="Assets\Scripts\Selection.cs" />
     <Compile Include="Assets\Scripts\SettingsManager.cs" />
     <Compile Include="Assets\Scripts\SideBoardManager.cs" />
-    <Compile Include="Assets\Scripts\SliceBehavior.cs" />
     <Compile Include="Assets\Scripts\StoreDataManager.cs" />
     <Compile Include="Assets\Scripts\TextFileManager.cs" />
     <Compile Include="Assets\Scripts\TouchGeneralButton.cs" />

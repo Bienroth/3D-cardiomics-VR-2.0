@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class InputControl : MonoBehaviour
 {
     //Classes
-    private SliceBehavior[] slices;
     private HandleBehavior handle;
     private Colour colour;
     //Values
@@ -25,7 +24,6 @@ public class InputControl : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject player;
     public GameObject copy;
-    public GameObject geneInfo;
     public GameObject trackerSphere;
     public GameObject detector;
     public GameObject keyboard;
@@ -46,13 +44,11 @@ public class InputControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slices = UnityEngine.Object.FindObjectsOfType<SliceBehavior>();
         handle = UnityEngine.Object.FindObjectOfType<HandleBehavior>();
         keyboardScript = UnityEngine.Object.FindObjectOfType<Keyboard>();
         heart_handle = GameObject.Find("Heart_Grabber");
         colour = UnityEngine.Object.FindObjectOfType<Colour>();
 
-        foreach (SliceBehavior slice in slices) slice.GetComponent<Renderer>().material = defaultMaterial;
     }
 
     void Update()
@@ -100,7 +96,6 @@ public class InputControl : MonoBehaviour
             controllerInput();
             interactionCheck();
             menuCheck();
-            detectorActivation();
         }
         if (GameObject.Find("hands:b_r_index1") != null) GameObject.Find("Detector_R").transform.position = GameObject.Find("hands:b_r_index_ignore").transform.position;
         if (GameObject.Find("hands:b_l_index1") != null) GameObject.Find("Detector_L").transform.position = GameObject.Find("hands:b_l_index_ignore").transform.position;
@@ -129,115 +124,88 @@ public class InputControl : MonoBehaviour
     {
         highlighterActive = true;
 
-        if (GameObject.Find("Extensions") != null)
+        try
         {
-
             GameObject.Find("Extensions").transform.Find("Highlighter").transform.gameObject.SetActive(true);
-
         }
+        catch (Exception e) { }
     }
 
     // Detection of single slices for group selection
     private void sliceDetector()
-    {
+    { //TBD
         // selection of slices for first group
         if (Compare.first == 1)
         {
-            foreach (SliceBehavior slice in slices)
-            {
-                if (slice.selected == true)
-                {
-                    if (slice.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
-                    {
-                        slice.GetComponent<Renderer>().material = defaultMaterial;
-                        UnityEngine.Object.FindObjectOfType<Selection>().outRemove(slice.name, 1);
-                    }
-                    else if (slice.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
-                    {
-                        slice.GetComponent<Renderer>().material = highlightMaterialGroup1;
-                        UnityEngine.Object.FindObjectOfType<Selection>().outAdd(slice.name, 1);
-                    }
-                }
-            }
+            //foreach (SliceBehavior slice in slices)
+            //{
+            //    if (slice.selected == true)
+            //    {
+            //        if (slice.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
+            //        {
+            //            slice.GetComponent<Renderer>().material = defaultMaterial;
+            //            UnityEngine.Object.FindObjectOfType<Selection>().outRemove(slice.name, 1);
+            //        }
+            //        else if (slice.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
+            //        {
+            //            slice.GetComponent<Renderer>().material = highlightMaterialGroup1;
+            //            UnityEngine.Object.FindObjectOfType<Selection>().outAdd(slice.name, 1);
+            //        }
+            //    }
+            //}
         }
 
         // selection of slices for second group
         if (Compare.first == 2)
         {
-            foreach (SliceBehavior slice in slices)
-            {
-                if (slice.selected == true)
-                {
-                    if (slice.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
-                    {
-                        Debug.Log("This piece is already selected for Group 1.");
-                    }
-                    else if (slice.GetComponent<Renderer>().material.name == "HighlightGroup2 (Instance)")
-                    {
-                        slice.GetComponent<Renderer>().material = defaultMaterial;
-                        UnityEngine.Object.FindObjectOfType<Selection>().outRemove(slice.name, 2);
-                    }
-                    else if (slice.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
-                    {
-                        slice.GetComponent<Renderer>().material = highlightMaterialGroup2;
-                        UnityEngine.Object.FindObjectOfType<Selection>().outAdd(slice.name, 2);
-                    }
-                }
-            }
+            //foreach (SliceBehavior slice in slices)
+            //{
+            //    if (slice.selected == true)
+            //    {
+            //        if (slice.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
+            //        {
+            //            Debug.Log("This piece is already selected for Group 1.");
+            //        }
+            //        else if (slice.GetComponent<Renderer>().material.name == "HighlightGroup2 (Instance)")
+            //        {
+            //            slice.GetComponent<Renderer>().material = defaultMaterial;
+            //            UnityEngine.Object.FindObjectOfType<Selection>().outRemove(slice.name, 2);
+            //        }
+            //        else if (slice.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
+            //        {
+            //            slice.GetComponent<Renderer>().material = highlightMaterialGroup2;
+            //            UnityEngine.Object.FindObjectOfType<Selection>().outAdd(slice.name, 2);
+            //        }
+            //    }
+            //}
         }
 
     }
-    // Activates slice detection if group selection is used
-    private void detectorActivation()
-    {
-        if (Compare.first != 0) detector.SetActive(true);
-        if (Compare.first == 0) detector.SetActive(false);
 
-    }
     private void interactionCheck()
     {
-        foreach (SliceBehavior slice in slices)
-        {
-            // Check if object is grabbed and/or resized 
-            if (slice.isGrabbed())
-            {
-                if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
-                {
-                    resizeModel(GameObject.Find(slice.name));
-                }
-            }
-            if (handle.isGrabbed())
-            {
-                if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
-                {
-                    //  resizeHandle();
-                }
-            }
+        // TBD Resize single pieces
+        //foreach (SliceBehavior slice in slices)
+        //{
+        //    // Check if object is grabbed and/or resized 
+        //    if (slice.isGrabbed())
+        //    {
+        //        if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
+        //        {
+        //            resizeModel(GameObject.Find(slice.name));
+        //        }
+        //    }
+        //    if (handle.isGrabbed())
+        //    {
+        //        if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
+        //        {
+        //            //  resizeHandle();
+        //        }
+        //    }
 
-        }
+        //}
     }
-    private void resizeHandle()
-    {
-        //TBD resize function for handle
 
-        foreach (SliceBehavior slice in slices)
-        {
-            slice.transform.SetParent(GameObject.Find("HeartParent").transform);
-        }
-        if (currentlyResize)
-        {
-            heart_handle.transform.position = rightHand.transform.position;
-            heart_handle.transform.localScale = new Vector3(initalize, initalize, initalize);
-            initalize = ((rightHand.transform.position - leftHand.transform.position).magnitude / start) * save;
-        }
-        else
-        {
-            initalize = heart_handle.transform.localScale.x;
-            save = initalize;
-            start = (rightHand.transform.position - leftHand.transform.position).magnitude;
-            currentlyResize = true;
-        }
-    }
     private void resizeModel(GameObject prominentObject)
     {
         {
@@ -261,17 +229,18 @@ public class InputControl : MonoBehaviour
     }
     public void callReset()
     {
-        for (int i = 0; i < 20; i++)
-        {
-            slices = UnityEngine.Object.FindObjectsOfType<SliceBehavior>();
 
-            Destroy(GameObject.Find("HeartCopy(Clone)"));
+        // TBD reset slices into original place
 
-            foreach (SliceBehavior slice in slices)
-            {
-                if (slice.copy == true) { slice.selfDestruct(); }
-                slice.Reset();
-            }
+            //slices = UnityEngine.Object.FindObjectsOfType<SliceBehavior>();
+
+            //Destroy(GameObject.Find("HeartCopy(Clone)"));
+
+            //foreach (SliceBehavior slice in slices)
+            //{
+            //    if (slice.copy == true) { slice.selfDestruct(); }
+            //    slice.Reset();
+            //}
 
             resetColour();
             geneText.text = "";
@@ -279,20 +248,12 @@ public class InputControl : MonoBehaviour
 
             expand = false;
 
-        }
+        
     }
 
     public void callResetHeatMap()
     {
-        slices = UnityEngine.Object.FindObjectsOfType<SliceBehavior>();
-
-        Destroy(GameObject.Find("HeartCopy(Clone)"));
-
-        foreach (SliceBehavior slice in slices)
-        {
-            if (slice.copy == true) { slice.selfDestruct(); }
-            slice.Reset();
-        }
+        // TBD how to select two models for heatmap compare
 
         handle.Reset();
 
@@ -400,15 +361,5 @@ public class InputControl : MonoBehaviour
     {
         slice.transform.position = Vector3.Lerp(from, to, 0.1f);
     }
-    void LateUpdate()
-    {
-        geneInfo.transform.LookAt(cam.transform);
-        geneInfo.transform.rotation = Quaternion.LookRotation(cam.transform.forward);
 
-        if (GameObject.Find("GeneName") != null)
-        {
-            GameObject.Find("GeneName").transform.LookAt(cam.transform);
-            GameObject.Find("GeneName").transform.rotation = Quaternion.LookRotation(cam.transform.forward);
-        }
-    }
 }

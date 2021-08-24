@@ -10,10 +10,7 @@ public class HapticFeedbackManager : MonoBehaviour
 
     private void Start()
     {
-        GameObject.Find("CurrentLevelVibration").GetComponent<Text>().text = vibrationLevel + "%";
         frequency = amplitude = ((float)vibrationLevel / 100);
-
-
     }
 
     private void OnCollisionEnter(Collision collision)

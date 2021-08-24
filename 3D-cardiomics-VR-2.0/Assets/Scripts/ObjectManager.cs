@@ -72,8 +72,9 @@ public class ObjectManager : MonoBehaviour
                 childchilds.gameObject.GetComponent<Rigidbody>().useGravity = false;
                 childchilds.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 StartCoroutine(delay());
-                childchilds.gameObject.AddComponent<OVRGrabbable>();
-                childchilds.gameObject.GetComponent<OVRGrabbable>().enabled = true;
+                // How to enable OVRGRabbable during runtime
+                //childchilds.gameObject.AddComponent<OVRGrabbable>();
+                //childchilds.gameObject.GetComponent<OVRGrabbable>().enabled = true;
             }
         }
     }
