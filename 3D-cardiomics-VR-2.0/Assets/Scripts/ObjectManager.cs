@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -100,8 +101,12 @@ public class ObjectManager : MonoBehaviour
     }
 
     private void setCounterText()
-    {
-        GameObject.Find("ModelDisplayText").GetComponent<Text>().text = ModelObjects.Count.ToString();
+    { 
+        try
+        {
+            GameObject.Find("ModelDisplayText").GetComponent<Text>().text = ModelObjects.Count.ToString();
+        } catch( Exception e) {}
+
     }
 
     IEnumerator delay()
