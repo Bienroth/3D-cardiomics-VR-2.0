@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.IO;
 using UnityEngine;
-using System.IO;
 using UnityEngine.UI;
 
 public class FileUploadManager : MonoBehaviour
@@ -33,7 +31,7 @@ public class FileUploadManager : MonoBehaviour
                     numberFiles++;
 
                     files = Instantiate(filePrefab, canvas.transform);
-                    files.transform.localPosition = new Vector3(150*numberFiles-150, 50 , 0);
+                    files.transform.localPosition = new Vector3(150 * numberFiles - 150, 50, 0);
 
                     files.GetComponentInChildren<Text>().text = nameFile;
                 }
@@ -42,5 +40,5 @@ public class FileUploadManager : MonoBehaviour
         }
 
     }
-   
+
 }

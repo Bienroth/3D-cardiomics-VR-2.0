@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -24,7 +24,7 @@ public class ObjectManager : MonoBehaviour
     {
         foreach (Transform child in obj.transform.GetChild(0).transform)
         {
-            if(child.name != "Extensions")
+            if (child.name != "Extensions")
             {
                 foreach (Transform childchild in child.transform)
                 {
@@ -45,7 +45,7 @@ public class ObjectManager : MonoBehaviour
 
     public void initiateModel()
     {
-        loadModel();  
+        loadModel();
         countPiecesOfObjects(temp);
     }
 
@@ -53,7 +53,7 @@ public class ObjectManager : MonoBehaviour
     {
         temp = Instantiate(modelExtensionPrefab);
         temp.transform.position = new Vector3(temp.transform.position.x + offset, temp.transform.position.y, temp.transform.position.z);
-        offset+=2;
+        offset += 2;
 
         temp2 = Instantiate(modelPrefab);
         temp2.transform.SetParent(GameObject.Find("Heart(Clone)").transform.GetChild(0).transform);
@@ -73,10 +73,10 @@ public class ObjectManager : MonoBehaviour
                 childchilds.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 StartCoroutine(delay());
                 childchilds.gameObject.AddComponent<OVRGrabbable>();
-                childchilds.gameObject.GetComponent<OVRGrabbable>().enabled = true;  
+                childchilds.gameObject.GetComponent<OVRGrabbable>().enabled = true;
             }
         }
-    }        
+    }
 
 
 
@@ -96,16 +96,17 @@ public class ObjectManager : MonoBehaviour
         int temp = ModelObjects.Count - 1;
         ModelObjects.Remove(GameObject.Find(temp.ToString()));
         Destroy(GameObject.Find(temp.ToString()));
-        offset -=2;
+        offset -= 2;
         setCounterText();
     }
 
     private void setCounterText()
-    { 
+    {
         try
         {
             GameObject.Find("ModelDisplayText").GetComponent<Text>().text = ModelObjects.Count.ToString();
-        } catch( Exception e) {}
+        }
+        catch (Exception e) { }
 
     }
 

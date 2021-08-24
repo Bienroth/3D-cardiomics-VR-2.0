@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UploadFileLog : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class UploadFileLog : MonoBehaviour
     {
         setpath();
         return File.ReadAllText(path);
-        
+
     }
 
 }

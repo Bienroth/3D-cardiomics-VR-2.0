@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.Threading;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class HapticFeedbackManager : MonoBehaviour
@@ -44,7 +41,7 @@ public class HapticFeedbackManager : MonoBehaviour
 
         GameObject.Find("CurrentLevelVibration").GetComponent<Text>().text = s;
 
-        frequency = amplitude =  ((float)vibrationLevel / 100);
+        frequency = amplitude = ((float)vibrationLevel / 100);
     }
 
 }

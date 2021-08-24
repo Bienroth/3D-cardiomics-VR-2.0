@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SideBoardManager : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class SideBoardManager : MonoBehaviour
     public GameObject geneMenuBtn;
     public GameObject setttingsMenuBtn;
     public GameObject dataMenuBtn;
-    private bool expanded=true;
+    private bool expanded = true;
     public void activateDataSetMenu()
     {
         if (geneMenu.activeSelf) geneMenu.SetActive(false);
@@ -40,12 +38,14 @@ public class SideBoardManager : MonoBehaviour
     {
         switch (expanded)
         {
-            case (true):    sideBar.transform.localPosition = new Vector3(17,0,0);
-                            expanded = !expanded;
-                            break;
-            case (false):   sideBar.transform.localPosition = new Vector3(19.5f, 0, 0);
-                            expanded = !expanded; 
-                            break;
+            case (true):
+                sideBar.transform.localPosition = new Vector3(17, 0, 0);
+                expanded = !expanded;
+                break;
+            case (false):
+                sideBar.transform.localPosition = new Vector3(19.5f, 0, 0);
+                expanded = !expanded;
+                break;
         }
     }
 

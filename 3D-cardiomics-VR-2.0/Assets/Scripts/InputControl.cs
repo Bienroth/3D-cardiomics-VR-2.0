@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +20,7 @@ public class InputControl : MonoBehaviour
     private bool menuReset = true;
     private bool currentlyResize = false;
     private bool expand = false;
-    private bool highlighterActive= false;    
+    private bool highlighterActive = false;
     //GameObjects
     public GameObject settingsMenu;
     public GameObject player;
@@ -58,7 +57,8 @@ public class InputControl : MonoBehaviour
 
     void Update()
     {
-        if (highlighterActive) {
+        if (highlighterActive)
+        {
 
             if (OVRInput.GetUp(OVRInput.Button.One))
             {
@@ -95,11 +95,12 @@ public class InputControl : MonoBehaviour
                 }
             }
         }
-        else if (!highlighterActive){
+        else if (!highlighterActive)
+        {
             controllerInput();
             interactionCheck();
             menuCheck();
-            detectorActivation(); 
+            detectorActivation();
         }
         if (GameObject.Find("hands:b_r_index1") != null) GameObject.Find("Detector_R").transform.position = GameObject.Find("hands:b_r_index_ignore").transform.position;
         if (GameObject.Find("hands:b_l_index1") != null) GameObject.Find("Detector_L").transform.position = GameObject.Find("hands:b_l_index_ignore").transform.position;
@@ -128,7 +129,8 @@ public class InputControl : MonoBehaviour
     {
         highlighterActive = true;
 
-        if(GameObject.Find("Extensions")!= null){
+        if (GameObject.Find("Extensions") != null)
+        {
 
             GameObject.Find("Extensions").transform.Find("Highlighter").transform.gameObject.SetActive(true);
 
@@ -385,10 +387,12 @@ public class InputControl : MonoBehaviour
     {
         switch (ColorButtonBig.activeSelf)
         {
-            case (true):  ColorButtonBig.SetActive(false);
-                          break;
-            case (false): ColorButtonBig.SetActive(true);
-                          break;
+            case (true):
+                ColorButtonBig.SetActive(false);
+                break;
+            case (false):
+                ColorButtonBig.SetActive(true);
+                break;
         }
     }
 

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public class SettingsManager : MonoBehaviour
 {
@@ -20,24 +18,27 @@ public class SettingsManager : MonoBehaviour
 
         switch (gameObject.name)
         {
-            case "HandBtn":     selectHand();
-                                break;
+            case "HandBtn":
+                selectHand();
+                break;
 
-            case "DecreaseBtn": vibrationSetting(false);
-                                 break;
-            case "IncreaseBtn": vibrationSetting(true);
-                                 break;
+            case "DecreaseBtn":
+                vibrationSetting(false);
+                break;
+            case "IncreaseBtn":
+                vibrationSetting(true);
+                break;
         }
 
     }
 
     private void vibrationSetting(bool change)
     {
-            try
-            {
-                GameObject.Find("Detector_R").GetComponent<HapticFeedbackManager>().setVibration(change);
-            }
-            catch (Exception e) { }
+        try
+        {
+            GameObject.Find("Detector_R").GetComponent<HapticFeedbackManager>().setVibration(change);
+        }
+        catch (Exception e) { }
 
     }
 

@@ -108,8 +108,8 @@ namespace Oculus.Platform
           PlatformSettings.UseStandalonePlatform = false;
           GUI.enabled = false;
 #endif
-            PlatformSettings.UseStandalonePlatform =
-              MakeToggle(new GUIContent(useStandaloneLabel, useStandaloneHint), PlatformSettings.UseStandalonePlatform);
+                    PlatformSettings.UseStandalonePlatform =
+                      MakeToggle(new GUIContent(useStandaloneLabel, useStandaloneHint), PlatformSettings.UseStandalonePlatform);
 
                     GUI.enabled = PlatformSettings.UseStandalonePlatform;
 
@@ -137,8 +137,8 @@ namespace Oculus.Platform
                             form.AddField("email", StandalonePlatformSettings.OculusPlatformTestUserEmail);
                             form.AddField("password", StandalonePlatformSettings.OculusPlatformTestUserPassword);
 
-                    // Start the WWW request to get the access token
-                    getAccessTokenRequest = UnityWebRequest.Post("https://graph.oculus.com/login", form);
+                            // Start the WWW request to get the access token
+                            getAccessTokenRequest = UnityWebRequest.Post("https://graph.oculus.com/login", form);
                             getAccessTokenRequest.SetRequestHeader("Authorization", "Bearer OC|1141595335965881|");
                             getAccessTokenRequest.SendWebRequest();
                             EditorApplication.update += GetAccessToken;

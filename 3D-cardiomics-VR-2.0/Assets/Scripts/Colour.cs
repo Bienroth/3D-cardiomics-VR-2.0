@@ -112,7 +112,7 @@ public class Colour : MonoBehaviour
     public Text geneOriginalText;
     private LogFile logFile;
     public String selectModel = "0";
-    public int totalNumberPieces=0;
+    public int totalNumberPieces = 0;
 
     public float[] expCopy;
     public float[] expOriginal;
@@ -135,7 +135,7 @@ public class Colour : MonoBehaviour
 
 
         totalNumberPieces = objectManager.getPiecesOfObject();
-        
+
         uploadfilelog = gameObject.GetComponent<UploadFileLog>();
         csvName = uploadfilelog.getFileName();
         Debug.Log(csvName);
@@ -402,7 +402,7 @@ public class Colour : MonoBehaviour
                 //TBD  use matching panel for name
                 geneOriginalText.text = SentenceCase(geneName);
             }
-            
+
             //TBD adapt logfile after colorfunction done
             //logFile.writeToFile(SentenceCase(geneName), false);
 
@@ -481,7 +481,7 @@ public class Colour : MonoBehaviour
         int yield_every = 10;
         float yield_time = 0.05f;
 
-       // loadingSpinner.SetActive(true);
+        // loadingSpinner.SetActive(true);
 
         // allGeneNames gets populated on startup - we can't do anything until it's filled
         while (!_allGenes_ready)

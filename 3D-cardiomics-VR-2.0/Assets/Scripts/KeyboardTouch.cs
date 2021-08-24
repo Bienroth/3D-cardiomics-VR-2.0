@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class KeyboardTouch : MonoBehaviour
 {
@@ -9,17 +6,18 @@ public class KeyboardTouch : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag != "Detector") {
+        if (collision.gameObject.tag != "Detector")
+        {
 
             Physics.IgnoreCollision(this.gameObject.GetComponent<Collider>(), collision.collider);
         }
 
         if (collision.gameObject.tag == "Detector")
         {
-        GameObject.FindObjectOfType<Keyboard>().touchInput(gameObject.name);
+            GameObject.FindObjectOfType<Keyboard>().touchInput(gameObject.name);
 
         }
-        
+
     }
 
 }

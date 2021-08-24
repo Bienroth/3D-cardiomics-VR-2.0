@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TouchGeneralButton : MonoBehaviour
@@ -15,9 +13,11 @@ public class TouchGeneralButton : MonoBehaviour
         if (collision.gameObject.tag == "Detector")
         {
             if (gameObject.name == "InputField") { GameObject.Find("ScriptHolder").GetComponent<InputControl>().enableKeyboard(); }
-            else { 
+            else
+            {
 
-             gameObject.GetComponent<Button>().onClick.Invoke(); }
+                gameObject.GetComponent<Button>().onClick.Invoke();
+            }
         }
 
     }
