@@ -5633,7 +5633,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ad446d4cd907a41ae008b297207201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrationLevel: 100
 --- !u!1 &371946364
 GameObject:
   m_ObjectHideFlags: 0
@@ -14828,7 +14827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ad446d4cd907a41ae008b297207201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrationLevel: 100
 --- !u!65 &1007624125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17611,7 +17609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ad446d4cd907a41ae008b297207201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrationLevel: 100
 --- !u!54 &1181234007
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21184,7 +21181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ad446d4cd907a41ae008b297207201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrationLevel: 100
 --- !u!65 &1458508532
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22074,6 +22070,7 @@ GameObject:
   - component: {fileID: 1582427170}
   - component: {fileID: 1582427169}
   - component: {fileID: 1582427168}
+  - component: {fileID: 1582427172}
   m_Layer: 8
   m_Name: Detector_R
   m_TagString: Detector
@@ -22171,6 +22168,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582427166}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1582427172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582427166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d17cf62cb1524e84e94b69125d28bfdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequency: 1
+  amplitude: 1
+  vibrationLevel: 100
 --- !u!1 &1608144111
 GameObject:
   m_ObjectHideFlags: 0
@@ -23218,7 +23230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ad446d4cd907a41ae008b297207201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vibrationLevel: 100
 --- !u!1 &1660598631
 GameObject:
   m_ObjectHideFlags: 0
