@@ -12,7 +12,7 @@ public class HandleBehavior : MonoBehaviour
 
     void Start()
     {
-        heart = GameObject.Find("Heart");
+        heart = GameObject.Find("Handle");
         spawnPos = transform.position;
         spawnRot = transform.rotation;
     }

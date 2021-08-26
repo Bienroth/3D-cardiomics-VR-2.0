@@ -65,7 +65,7 @@ public class ObjectManager : MonoBehaviour
         offset += 2;
 
         temp2 = Instantiate(modelPrefab);
-        temp2.transform.SetParent(GameObject.Find("Heart(Clone)").transform.GetChild(0).transform);
+        temp2.transform.SetParent(GameObject.Find("Handle(Clone)").transform.GetChild(0).transform);
         temp2.transform.localPosition = new Vector3(-500, 0, 0);
         var index = addCopytoList(temp);
         temp.name = index.ToString();
