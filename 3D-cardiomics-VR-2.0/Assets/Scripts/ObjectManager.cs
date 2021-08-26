@@ -20,6 +20,7 @@ public class ObjectManager : MonoBehaviour
         setCounterText();
     }
 
+    // Count pieces of object used
     private void countPiecesOfObjects(GameObject obj)
     {
         foreach (Transform child in obj.transform.GetChild(0).transform)
@@ -37,18 +38,26 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    // adds new models to List
     public int addCopytoList(GameObject obj)
     {
         ModelObjects.Add(obj);
         return ModelObjects.IndexOf(obj);
     }
 
+    // first initiate of a model
     public void initiateModel()
     {
         loadModel();
         countPiecesOfObjects(temp);
     }
 
+    public void addModel()
+    {
+        loadModel();
+    }
+
+    // used to add new models to environment
     public void loadModel()
     {
         temp = Instantiate(modelExtensionPrefab);
@@ -67,11 +76,11 @@ public class ObjectManager : MonoBehaviour
         {
             foreach (Transform childchilds in childchild.transform)
             {
-                childchilds.gameObject.AddComponent<Rigidbody>();
-                StartCoroutine(delay());
-                childchilds.gameObject.GetComponent<Rigidbody>().useGravity = false;
-                childchilds.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                StartCoroutine(delay());
+                //childchilds.gameObject.AddComponent<Rigidbody>();
+                //StartCoroutine(delay());
+                //childchilds.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                //childchilds.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                //StartCoroutine(delay());
                 // How to enable OVRGRabbable during runtime
                 //childchilds.gameObject.AddComponent<OVRGrabbable>();
                 //childchilds.gameObject.GetComponent<OVRGrabbable>().enabled = true;
@@ -79,19 +88,14 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
-
-
+    // returns the number of pieces the current used model has
     public int getPiecesOfObject()
     {
         return childNumber;
 
     }
 
-    public void addModel()
-    {
-        loadModel();
-    }
-
+    // deletes a model and removes it from list
     public void deleteModel()
     {
         int temp = ModelObjects.Count - 1;
@@ -101,6 +105,7 @@ public class ObjectManager : MonoBehaviour
         setCounterText();
     }
 
+    // sets counter on Menu to show how many objects currently in environment
     private void setCounterText()
     {
         try
@@ -111,6 +116,7 @@ public class ObjectManager : MonoBehaviour
 
     }
 
+    // delay one frame to ensure previous command is complete
     IEnumerator delay()
     {
         yield return 0;

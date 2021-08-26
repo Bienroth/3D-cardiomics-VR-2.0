@@ -36,9 +36,6 @@ public class PanelScript : MonoBehaviour
     // Fills the data grid of the 'ListHolder' table and makes it visible
     public void generateTable(int geneId)
     {
-        combinedView.SetActive(true);
-        heatMap.SetActive(true);
-
         upto = 1;
 
         // Destroy all previous cells before making table again

@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: 5577700725415796773}
   - component: {fileID: 5577700725415796777}
   - component: {fileID: 5577700725415796774}
-  - component: {fileID: 5577700725415796776}
   m_Layer: 8
   m_Name: B_4
   m_TagString: slice
@@ -164,22 +163,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700725415796776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700725415796771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700725425495778
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +177,6 @@ GameObject:
   - component: {fileID: 5577700725425495780}
   - component: {fileID: 5577700725425495784}
   - component: {fileID: 5577700725425495785}
-  - component: {fileID: 5577700725425495787}
   m_Layer: 8
   m_Name: B_3
   m_TagString: slice
@@ -310,22 +292,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700725425495787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700725425495778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700725495370881
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +306,6 @@ GameObject:
   - component: {fileID: 5577700725495370883}
   - component: {fileID: 5577700725495370887}
   - component: {fileID: 5577700725495370884}
-  - component: {fileID: 5577700725495370886}
   m_Layer: 8
   m_Name: A_2
   m_TagString: slice
@@ -455,22 +420,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700725495370886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700725495370881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700725572568070
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +434,6 @@ GameObject:
   - component: {fileID: 5577700725572568072}
   - component: {fileID: 5577700725572568076}
   - component: {fileID: 5577700725572568077}
-  - component: {fileID: 5577700725572568079}
   m_Layer: 8
   m_Name: C_3
   m_TagString: slice
@@ -601,22 +549,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700725572568079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700725572568070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700725584305122
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +596,6 @@ GameObject:
   - component: {fileID: 5577700725657723383}
   - component: {fileID: 5577700725657723387}
   - component: {fileID: 5577700725657723384}
-  - component: {fileID: 5577700725657723386}
   m_Layer: 8
   m_Name: C_4
   m_TagString: slice
@@ -780,22 +711,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700725657723386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700725657723381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700725913728953
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +725,6 @@ GameObject:
   - component: {fileID: 5577700725913728955}
   - component: {fileID: 5577700725913728959}
   - component: {fileID: 5577700725913728956}
-  - component: {fileID: 5577700725913728958}
   - component: {fileID: 5577700725913728896}
   - component: {fileID: 5577700725913728897}
   - component: {fileID: 5577700725913728899}
@@ -934,22 +848,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700725913728958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700725913728953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!223 &5577700725913728896
 Canvas:
   m_ObjectHideFlags: 0
@@ -1017,7 +915,6 @@ GameObject:
   - component: {fileID: 5577700726111794660}
   - component: {fileID: 5577700726111794664}
   - component: {fileID: 5577700726111794665}
-  - component: {fileID: 5577700726111794667}
   m_Layer: 8
   m_Name: B_2
   m_TagString: slice
@@ -1133,22 +1030,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700726111794667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726111794658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700726262505691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1045,6 @@ GameObject:
   - component: {fileID: 5577700726262505633}
   - component: {fileID: 5577700726262505694}
   - component: {fileID: 5577700726262505632}
-  - component: {fileID: 5577700726262505635}
   m_Layer: 8
   m_Name: D_3
   m_TagString: slice
@@ -1297,22 +1177,6 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
---- !u!114 &5577700726262505635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726262505691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700726372891487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,7 +1226,6 @@ GameObject:
   - component: {fileID: 5577700726422294215}
   - component: {fileID: 5577700726422294219}
   - component: {fileID: 5577700726422294216}
-  - component: {fileID: 5577700726422294218}
   - component: {fileID: 5577700726422294220}
   - component: {fileID: 5577700726422294221}
   - component: {fileID: 5577700726422294223}
@@ -1486,22 +1349,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700726422294218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726422294213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!223 &5577700726422294220
 Canvas:
   m_ObjectHideFlags: 0
@@ -1603,7 +1450,6 @@ GameObject:
   - component: {fileID: 5577700726649481291}
   - component: {fileID: 5577700726649481295}
   - component: {fileID: 5577700726649481292}
-  - component: {fileID: 5577700726649481294}
   m_Layer: 8
   m_Name: B_1
   m_TagString: slice
@@ -1719,22 +1565,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700726649481294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726649481289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700726689600470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1579,6 @@ GameObject:
   - component: {fileID: 5577700726689600472}
   - component: {fileID: 5577700726689600476}
   - component: {fileID: 5577700726689600477}
-  - component: {fileID: 5577700726689600479}
   m_Layer: 8
   m_Name: A_3
   m_TagString: slice
@@ -1865,22 +1694,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700726689600479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726689600470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700726792750497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,7 +1708,6 @@ GameObject:
   - component: {fileID: 5577700726792750499}
   - component: {fileID: 5577700726792750503}
   - component: {fileID: 5577700726792750500}
-  - component: {fileID: 5577700726792750502}
   - component: {fileID: 5577700726792750504}
   - component: {fileID: 5577700726792750505}
   - component: {fileID: 5577700726792750507}
@@ -2019,22 +1831,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700726792750502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726792750497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!223 &5577700726792750504
 Canvas:
   m_ObjectHideFlags: 0
@@ -2104,7 +1900,6 @@ GameObject:
   - component: {fileID: 5577700726834765868}
   - component: {fileID: 5577700726834765872}
   - component: {fileID: 5577700726834765873}
-  - component: {fileID: 5577700726834765875}
   - component: {fileID: 5577700726834765877}
   - component: {fileID: 5577700726834765874}
   - component: {fileID: 5577700726834765876}
@@ -2228,22 +2023,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700726834765875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726834765866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!223 &5577700726834765877
 Canvas:
   m_ObjectHideFlags: 0
@@ -2311,7 +2090,6 @@ GameObject:
   - component: {fileID: 5577700726944404346}
   - component: {fileID: 5577700726944404350}
   - component: {fileID: 5577700726944404351}
-  - component: {fileID: 5577700726944404289}
   m_Layer: 8
   m_Name: A_1
   m_TagString: slice
@@ -2427,22 +2205,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700726944404289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726944404344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700726947421452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2457,7 +2219,6 @@ GameObject:
   - component: {fileID: 5577700726947421454}
   - component: {fileID: 5577700726947421458}
   - component: {fileID: 5577700726947421459}
-  - component: {fileID: 5577700726947421461}
   m_Layer: 8
   m_Name: C_2
   m_TagString: slice
@@ -2573,22 +2334,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700726947421461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726947421452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700726999261444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,7 +2348,6 @@ GameObject:
   - component: {fileID: 5577700726999261446}
   - component: {fileID: 5577700726999261450}
   - component: {fileID: 5577700726999261451}
-  - component: {fileID: 5577700726999261453}
   - component: {fileID: 5577700726999261455}
   - component: {fileID: 5577700726999261452}
   m_Layer: 8
@@ -2726,22 +2470,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700726999261453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700726999261444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!223 &5577700726999261455
 Canvas:
   m_ObjectHideFlags: 0
@@ -2796,7 +2524,6 @@ GameObject:
   - component: {fileID: 5577700727077653295}
   - component: {fileID: 5577700727077653299}
   - component: {fileID: 5577700727077653296}
-  - component: {fileID: 5577700727077653298}
   m_Layer: 8
   m_Name: C_1
   m_TagString: slice
@@ -2912,22 +2639,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700727077653298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700727077653293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700727129249360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2976,7 +2687,6 @@ GameObject:
   - component: {fileID: 5577700727176127576}
   - component: {fileID: 5577700727176127580}
   - component: {fileID: 5577700727176127581}
-  - component: {fileID: 5577700727176127583}
   m_Layer: 8
   m_Name: A_4
   m_TagString: slice
@@ -3092,22 +2802,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5577700727176127583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577700727176127574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2747e56d967dfb04587923d457fc5688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  original: {x: 0, y: 0, z: 0}
-  snapedIn: 1
-  copy: 0
-  selected: 0
 --- !u!1 &5577700727378636097
 GameObject:
   m_ObjectHideFlags: 0

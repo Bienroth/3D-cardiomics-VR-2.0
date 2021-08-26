@@ -23,4 +23,13 @@ public class StoreDataManager : MonoBehaviour
     {
         gameObject.transform.GetChild(0).Find("Extensions").Find("GeneOrigName").GetComponentInChildren<Text>().text = geneName;
     }
+    public void clearTable()
+    {
+        currentData.Clear();
+    }
+
+    public Hashtable getDataTable()
+    {
+        return currentData;
+    }
 }

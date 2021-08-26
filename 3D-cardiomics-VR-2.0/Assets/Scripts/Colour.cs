@@ -125,6 +125,7 @@ public class Colour : MonoBehaviour
     private float heatMin;
     private int counterOriginal, counterCopy = 0;
 
+    private GameObject model;
 
     // Run on initial load
     void Start()
@@ -397,10 +398,10 @@ public class Colour : MonoBehaviour
             }
             for (int i = 0; i < totalNumberPieces; i++)
             {
-                colourHeartPiece(hp[i], values[geneIndex].Values[i], lMax, lMin);
+                colourHeartPiece(hp[i], values[geneIndex].Values[i], lMax, lMin, true);
 
                 //TBD  use matching panel for name
-                geneOriginalText.text = SentenceCase(geneName);
+                //geneOriginalText.text = SentenceCase(geneName);
             }
 
             //TBD adapt logfile after colorfunction done
@@ -593,7 +594,7 @@ public class Colour : MonoBehaviour
         // norm = true;
         for (int i = 0; i < totalNumberPieces; i++)
         {
-            colourHeartPiece(hp[i], averageValues[i], maxValue, minValue);
+            colourHeartPiece(hp[i], averageValues[i], maxValue, minValue, true);
             yield return null;
         }
 
@@ -711,9 +712,8 @@ public class Colour : MonoBehaviour
     }
 
     // Colours a given heart piece based on the expression value
-    public void colourHeartPiece(string heartPiece, float exp, float lMax, float lMin)
+    public void colourHeartPiece(string heartPiece, float exp, float lMax, float lMin, bool org)
     {
-
         // Declare variables
         float rgb = 255;
         float t;
@@ -770,23 +770,44 @@ public class Colour : MonoBehaviour
         //GameObject.Find(heartPiece).GetComponent<Renderer>().material.SetFloat("_Metallic", 0f);
 
         //TBD 
-        foreach (GameObject gameObj in GameObject.FindObjectsOfType<GameObject>())
-        {
-            if (gameObj.name == heartPiece)
+    if(org)
+        {    
+            foreach (GameObject gameObj in GameObject.FindObjectsOfType<GameObject>())
             {
-                if (gameObj.transform.root.name == selectModel)
+                if (gameObj.name == heartPiece)
                 {
-                    gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().addName(SentenceCase(currentGene));
-                    gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().addData(heartPiece, exp.ToString());
+                    if (gameObj.transform.root.name == selectModel)
+                    {
+                        gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().addName(SentenceCase(currentGene));
+                        gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().addData(heartPiece, exp.ToString());
 
 
 
-                    gameObj.GetComponent<Renderer>().material.color = g.Evaluate(t);
-                    Debug.Log(currentGene);
+                        gameObj.GetComponent<Renderer>().material.color = g.Evaluate(t);
+                        Debug.Log(currentGene);
+                    }
+                }
+            }
+        //GameObject.Find(heartPiece).GetComponent<Renderer>().material.color = g.Evaluate(t); 
+        }
+        else if(!org)
+        {
+
+            foreach (GameObject gameObj in GameObject.FindObjectsOfType<GameObject>())
+            {
+                if (gameObj.name == heartPiece && gameObj.transform.root.name == model.name)
+                {
+
+                        gameObj.GetComponent<Renderer>().material.color = g.Evaluate(t);
+                    
                 }
             }
         }
-        //GameObject.Find(heartPiece).GetComponent<Renderer>().material.color = g.Evaluate(t); 
+    }
+
+    public void setModelGameobject(GameObject model)
+    {
+        this.model = model;
     }
 
     // Resets the colour of all the heart pieces back to white

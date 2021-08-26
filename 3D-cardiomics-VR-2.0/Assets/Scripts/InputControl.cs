@@ -24,13 +24,11 @@ public class InputControl : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject player;
     public GameObject copy;
-    public GameObject trackerSphere;
     public GameObject detector;
     public GameObject keyboard;
     public GameObject geneMenu;
     public GameObject ColorButtonBig;
     private GameObject heart_handle;
-    public GameObject head;
 
     //LocalAvatar and Scene Elements
     public Camera cam; //CenterEye
@@ -243,7 +241,7 @@ public class InputControl : MonoBehaviour
             //}
 
             resetColour();
-            geneText.text = "";
+            // geneText.text = "";
             handle.Reset();
 
             expand = false;
@@ -303,11 +301,6 @@ public class InputControl : MonoBehaviour
         }
     }
 
-    public void combinedView()
-    {
-        if (GameObject.Find("HeartCopy(Clone)") == null)
-            Instantiate(copy);
-    }
     public void resetGeneText()
     {
         geneText.text = "";
