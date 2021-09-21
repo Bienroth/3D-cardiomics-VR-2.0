@@ -7,6 +7,7 @@ public class HapticFeedbackManager : MonoBehaviour
     public float amplitude = 1f;
 
     public int vibrationLevel = 100;
+    public GameObject selected;
 
     private void Start()
     {
@@ -16,7 +17,14 @@ public class HapticFeedbackManager : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         OVRInput.SetControllerVibration(frequency, amplitude, OVRInput.Controller.RTouch);
+        GameObject.Find("ScriptHolder").GetComponent<InputControl>().setselection(collision.gameObject);
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+
+    }
+
 
     private void OnCollisionExit(Collision collision)
     {
@@ -40,5 +48,6 @@ public class HapticFeedbackManager : MonoBehaviour
 
         frequency = amplitude = ((float)vibrationLevel / 100);
     }
+
 
 }

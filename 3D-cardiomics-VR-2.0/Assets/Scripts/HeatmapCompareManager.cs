@@ -10,9 +10,16 @@ public class HeatmapCompareManager : MonoBehaviour
     private Hashtable tempData;
     GameObject model1;
     GameObject model2;
+    List<GameObject> objList = new List<GameObject>();
+    private int i = 0;
 
     public void TBDFunction()
     {
+        // collison if heart grabber and heart grabber → set bool true and wait for ovr released
+        // then get transform.root and cal set Models
+        // change label
+        // delete one of the hearts 
+
         setModelsToCompare(GameObject.Find("0"), GameObject.Find("1"));
         readDataForModel();
     }
@@ -21,17 +28,20 @@ public class HeatmapCompareManager : MonoBehaviour
     {
         this.model1 = model1;
         this.model2 = model2;
+        readDataForModel();
     }
         
     public void readDataForModel()
-    {       
+    {
+        
         //de.Key = A_1 usw. sort alphabetially or match both components
         data1 = model1.GetComponent<StoreDataManager>().getDataTable();
         int max = 0;
         int min = 0;
+        
         foreach (DictionaryEntry de in data1)
         {
-            Debug.Log(de.Value);
+
             data2 = model2.GetComponent<StoreDataManager>().getDataTable();
             foreach (DictionaryEntry des in data2)
             {
@@ -50,14 +60,33 @@ public class HeatmapCompareManager : MonoBehaviour
 
         model1.GetComponent<StoreDataManager>().clearTable();
         model2.GetComponent<StoreDataManager>().clearTable();
-
-        // compare both
-        // calculate diff
-        // Call colour function with main heart an delete second one
-        // save in Store Manager and add a bool heatmap and not original 
-        // add gene Text info
+        gameObject.GetComponent<ObjectManager>().deleteSpecificModel(model2.name);
+        model1.GetComponent<StoreDataManager>().customLabel("Compare");
     }
 
+    public void safeToSH(GameObject obj)
+    {
+        if (this.gameObject.name == "ScriptHolder")
+        {
+            if (obj != null)
+            {
+                objList.Add(obj);
+                i++;
+                if (i == 2)
+                {
+                    i = 0;
+                    callHeatmap();
+                }
+            }
+        }
 
+    }
+
+    private void callHeatmap()
+    {
+        Debug.Log(objList[0].name);
+        Debug.Log(objList[1].name);
+        setModelsToCompare(objList[0], objList[1]);
+    }
 
 }

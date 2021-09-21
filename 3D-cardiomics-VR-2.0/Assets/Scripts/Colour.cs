@@ -123,7 +123,7 @@ public class Colour : MonoBehaviour
     private float originalMin;
     private float heatMax;
     private float heatMin;
-    private int counterOriginal, counterCopy = 0;
+    // private int counterOriginal, counterCopy = 0;
 
     private GameObject model;
 
@@ -296,7 +296,7 @@ public class Colour : MonoBehaviour
             .ToArray();
     }
 
-    public IEnumerator InitValidGeneNames(string csvFilenameBase = "valid_gene_names")
+    public IEnumerator InitValidGeneNames(string csvFilenameBase = "valid_names")
     {
         int yield_every = 1000;
 
@@ -777,17 +777,20 @@ public class Colour : MonoBehaviour
                 if (gameObj.name == heartPiece)
                 {
                     if (gameObj.transform.root.name == selectModel)
-                    {
+                    {                            
+                       // if (SentenceCase(currentGene) != gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().getCurrentGene())
+                        {              
+                            gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().addData(heartPiece, exp.ToString());
+                        }
                         gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().addName(SentenceCase(currentGene));
-                        gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().addData(heartPiece, exp.ToString());
-
-
-
+                        // TBD this line blocks code from using A/N view
+                        
+                        gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().setNorm(norm);
                         gameObj.GetComponent<Renderer>().material.color = g.Evaluate(t);
-                        Debug.Log(currentGene);
                     }
                 }
             }
+
         //GameObject.Find(heartPiece).GetComponent<Renderer>().material.color = g.Evaluate(t); 
         }
         else if(!org)
@@ -802,6 +805,20 @@ public class Colour : MonoBehaviour
                     
                 }
             }
+        }
+    }
+
+    public void adjustNorm()
+    {
+        norm = !norm;
+
+        if (!norm)
+        {
+            normButton.image.overrideSprite = normDisabledSprite;
+        }
+        else
+        {
+            normButton.image.overrideSprite = null;
         }
     }
 

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class InputControl : MonoBehaviour
 {
     //Classes
-    private HandleBehavior handle;
     private Colour colour;
     //Values
     private float fscale, initalize, start, save;
@@ -20,7 +19,9 @@ public class InputControl : MonoBehaviour
     private bool currentlyResize = false;
     private bool expand = false;
     private bool highlighterActive = false;
+    private bool groupselectActive = false;
     //GameObjects
+    private GameObject select;
     public GameObject settingsMenu;
     public GameObject player;
     public GameObject copy;
@@ -42,7 +43,6 @@ public class InputControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        handle = UnityEngine.Object.FindObjectOfType<HandleBehavior>();
         keyboardScript = UnityEngine.Object.FindObjectOfType<Keyboard>();
         heart_handle = GameObject.Find("Heart_Grabber");
         colour = UnityEngine.Object.FindObjectOfType<Colour>();
@@ -102,19 +102,28 @@ public class InputControl : MonoBehaviour
     }
 
 
+
     // ControllerInput by buttons
     private void controllerInput()
     {
-        if (OVRInput.Get(OVRInput.Button.Two)) callReset();
+       // if (OVRInput.Get(OVRInput.Button.Two)) callReset();
         if (OVRInput.GetUp(OVRInput.Button.Start)) callGeneMenu();
         if (OVRInput.GetUp(OVRInput.Button.Four)) callHighlighter();
         if (OVRInput.GetUp(OVRInput.Button.Three)) callExplode();
-        if (OVRInput.GetUp(OVRInput.Button.One)) sliceDetector();
+        if (groupselectActive) { 
+            if (OVRInput.GetUp(OVRInput.Button.One)) sliceDetector(); }
 
     }
 
     public void resetColour()
     {
+        int num = GameObject.Find("ScriptHolder").GetComponent<ObjectManager>().numberOfObjects();
+        for(int i=0; i < num; i++)
+        {
+            GameObject.Find("ScriptHolder").GetComponent<ObjectManager>().deleteModel();
+        }
+        GameObject.Find("ScriptHolder").GetComponent<ObjectManager>().addModel();
+
         colour.resetColour();
     }
 
@@ -125,8 +134,19 @@ public class InputControl : MonoBehaviour
         try
         {
             GameObject.Find("Extensions").transform.Find("Highlighter").transform.gameObject.SetActive(true);
+            colour.adjustNorm();
         }
-        catch (Exception e) { }
+        catch (Exception) { }
+    }
+
+    public void activateGroupSelection()
+    {
+        groupselectActive = true;
+    }
+
+    public void setselection(GameObject obj)
+    {
+        select = obj;
     }
 
     // Detection of single slices for group selection
@@ -135,61 +155,60 @@ public class InputControl : MonoBehaviour
         // selection of slices for first group
         if (Compare.first == 1)
         {
-            //foreach (SliceBehavior slice in slices)
-            //{
-            //    if (slice.selected == true)
-            //    {
-            //        if (slice.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
-            //        {
-            //            slice.GetComponent<Renderer>().material = defaultMaterial;
-            //            UnityEngine.Object.FindObjectOfType<Selection>().outRemove(slice.name, 1);
-            //        }
-            //        else if (slice.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
-            //        {
-            //            slice.GetComponent<Renderer>().material = highlightMaterialGroup1;
-            //            UnityEngine.Object.FindObjectOfType<Selection>().outAdd(slice.name, 1);
-            //        }
-            //    }
-            //}
+            if (select.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
+            {
+                select.GetComponent<Renderer>().material = defaultMaterial;
+                UnityEngine.Object.FindObjectOfType<Selection>().outRemove(select.name, 1);
+            }
+            else if (select.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
+            {
+                select.GetComponent<Renderer>().material = highlightMaterialGroup1;
+                UnityEngine.Object.FindObjectOfType<Selection>().outAdd(select.name, 1);
+            }
+
         }
 
         // selection of slices for second group
         if (Compare.first == 2)
         {
-            //foreach (SliceBehavior slice in slices)
-            //{
-            //    if (slice.selected == true)
-            //    {
-            //        if (slice.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
-            //        {
-            //            Debug.Log("This piece is already selected for Group 1.");
-            //        }
-            //        else if (slice.GetComponent<Renderer>().material.name == "HighlightGroup2 (Instance)")
-            //        {
-            //            slice.GetComponent<Renderer>().material = defaultMaterial;
-            //            UnityEngine.Object.FindObjectOfType<Selection>().outRemove(slice.name, 2);
-            //        }
-            //        else if (slice.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
-            //        {
-            //            slice.GetComponent<Renderer>().material = highlightMaterialGroup2;
-            //            UnityEngine.Object.FindObjectOfType<Selection>().outAdd(slice.name, 2);
-            //        }
-            //    }
-            //}
+
+            if (select.GetComponent<Renderer>().material.name == "HighlightGroup1 (Instance)")
+            {
+                Debug.Log("This piece is already selected for Group 1.");
+            }
+            else if (select.GetComponent<Renderer>().material.name == "HighlightGroup2 (Instance)")
+            {
+                select.GetComponent<Renderer>().material = defaultMaterial;
+                UnityEngine.Object.FindObjectOfType<Selection>().outRemove(select.name, 2);
+            }
+            else if (select.GetComponent<Renderer>().material.name == "HeartDefault (Instance)")
+            {
+                select.GetComponent<Renderer>().material = highlightMaterialGroup2;
+                UnityEngine.Object.FindObjectOfType<Selection>().outAdd(select.name, 2);
+            }
+
         }
 
     }
 
     private void interactionCheck()
     {
-        // TBD Resize single pieces
-        //foreach (SliceBehavior slice in slices)
-        //{
-        //    // Check if object is grabbed and/or resized 
-        //    if (slice.isGrabbed())
-        //    {
-        //        if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
-        //        {
+        if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger) && OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
+        {
+            foreach (GameObject gameObj in GameObject.FindObjectsOfType<GameObject>())
+            {
+                if (gameObj.transform.GetComponent<OVRGrabbable>() != null) {
+                        if (gameObj.transform.GetComponent<OVRGrabbable>().isGrabbed)
+                        {
+                            //TBD enter resize code here
+
+                        } 
+                }
+            }
+
+        }
+                
+                //        {
         //            resizeModel(GameObject.Find(slice.name));
         //        }
         //    }
@@ -204,20 +223,20 @@ public class InputControl : MonoBehaviour
         //}
     }
 
-    private void resizeModel(GameObject prominentObject)
+    private void resizeModel(GameObject obj)
     {
         {
             // Resize function work around because of increased object sizes due to import
             if (currentlyResize)
             {
-                prominentObject.transform.localScale = new Vector3(initalize, initalize, initalize);
+                obj.transform.localScale = new Vector3(initalize, initalize, initalize);
                 fscale = (rightHand.transform.position - leftHand.transform.position).magnitude;
                 initalize = (fscale / start) * save;
             }
             // Resize initializing parameters
             else
             {
-                initalize = prominentObject.transform.localScale.x;
+                initalize = obj.transform.localScale.x;
                 save = initalize;
                 start = (rightHand.transform.position - leftHand.transform.position).magnitude;
                 currentlyResize = true;
@@ -228,33 +247,24 @@ public class InputControl : MonoBehaviour
     public void callReset()
     {
 
-        // TBD reset slices into original place
-
-            //slices = UnityEngine.Object.FindObjectsOfType<SliceBehavior>();
-
-            //Destroy(GameObject.Find("HeartCopy(Clone)"));
-
-            //foreach (SliceBehavior slice in slices)
-            //{
-            //    if (slice.copy == true) { slice.selfDestruct(); }
-            //    slice.Reset();
-            //}
-
             resetColour();
-            // geneText.text = "";
-            handle.Reset();
+            foreach (GameObject gameObj in GameObject.FindObjectsOfType<GameObject>())
+            { if(gameObj.name == "GeneOrigName")
+                {
+                    gameObj.GetComponentInChildren<Text>().text = "";
+                }
+                if (gameObj.name == "NormText")
+                {
+                    gameObj.GetComponentInChildren<Text>().text = "";
+                }
+            }
 
             expand = false;
-
-        
     }
 
     public void callResetHeatMap()
     {
         // TBD how to select two models for heatmap compare
-
-        handle.Reset();
-
         expand = false;
 
     }

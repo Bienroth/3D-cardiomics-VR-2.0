@@ -70,8 +70,8 @@
     <Compile Include="Assets\Scripts\FileUpload.cs" />
     <Compile Include="Assets\Scripts\FileUploadManager.cs" />
     <Compile Include="Assets\Scripts\GeneSet.cs" />
-    <Compile Include="Assets\Scripts\HandleBehavior.cs" />
     <Compile Include="Assets\Scripts\HapticFeedbackManager.cs" />
+    <Compile Include="Assets\Scripts\HeatmapCollider.cs" />
     <Compile Include="Assets\Scripts\HeatmapCompareManager.cs" />
     <Compile Include="Assets\Scripts\HoverManager.cs" />
     <Compile Include="Assets\Scripts\InputControl.cs" />
@@ -104,9 +104,8 @@
     <None Include="Assets\Resources\genesets\cluster_12.txt" />
     <None Include="Assets\Resources\genesets\cluster_5.txt" />
     <None Include="Assets\SessionLog.txt" />
-    <None Include="Assets\Resources\valid_gene_names.txt" />
+    <None Include="Assets\Resources\valid_names.txt" />
     <None Include="Assets\Resources\dataset2207.txt" />
-    <None Include="Assets\Resources\dataset2208.txt" />
     <None Include="Assets\CurrentFile.txt" />
     <None Include="Assets\Resources\GENE-DESCRIPTION-TSV_MGI_9.tsv.txt" />
     <None Include="Assets\Resources\genesets\cluster_2.txt" />
@@ -118,6 +117,7 @@
     <None Include="Assets\Shaders\OutlinedDiffuse.shader" />
     <None Include="Assets\Resources\genesets\cluster_6.txt" />
     <None Include="Assets\Shaders\OutlinedBumpedDiffuse.shader" />
+    <None Include="Assets\Resources\datasetTest.txt" />
     <None Include="Assets\SimilarGeneList.txt" />
     <None Include="Assets\Resources\genesets\cluster_3.txt" />
     <None Include="Assets\Resources\genesets\cluster_7.txt" />

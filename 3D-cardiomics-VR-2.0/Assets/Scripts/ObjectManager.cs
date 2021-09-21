@@ -116,9 +116,18 @@ public class ObjectManager : MonoBehaviour
 
     }
 
-    // delay one frame to ensure previous command is complete
-    IEnumerator delay()
+    public int numberOfObjects()
     {
-        yield return 0;
+        return ModelObjects.Count;
     }
+
+    public void deleteSpecificModel(string name)
+    {
+        int temp = int.Parse(name);
+        ModelObjects.Remove(GameObject.Find(temp.ToString()));
+        Destroy(GameObject.Find(temp.ToString()));
+        //offset -= 2;
+        setCounterText();
+    }
+
 }

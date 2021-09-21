@@ -15,6 +15,7 @@ TagManager:
   - Detector
   - object
   - KeyboardDocking
+  - handleframe
   layers:
   - Default
   - TransparentFX
