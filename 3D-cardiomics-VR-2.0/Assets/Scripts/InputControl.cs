@@ -39,6 +39,7 @@ public class InputControl : MonoBehaviour
     [SerializeField] private Material highlightMaterialGroup1;
     [SerializeField] private Material highlightMaterialGroup2;
     [SerializeField] private Material defaultMaterial;
+    private string selectModel = "0";
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,7 @@ public class InputControl : MonoBehaviour
                 if (GameObject.Find("Highlighter") != null)
                 {
                     colour.setSelectModel(GameObject.Find("Highlighter").transform.root.name);
+                    setSelectModel(GameObject.Find("Highlighter").transform.root.name);
                     GameObject.Find("Highlighter").SetActive(false);
                     highlighterActive = false;
                 }
@@ -108,6 +110,10 @@ public class InputControl : MonoBehaviour
 
     }
 
+    public void setSelectModel(string selectModel)
+    {
+        this.selectModel = selectModel;
+    }
 
 
     // ControllerInput by buttons
@@ -269,13 +275,6 @@ public class InputControl : MonoBehaviour
             expand = false;
     }
 
-    public void callResetHeatMap()
-    {
-        // TBD how to select two models for heatmap compare
-        expand = false;
-
-    }
-
     public void callGeneMenu()
     {
         if (geneMenu.activeSelf)
@@ -328,31 +327,63 @@ public class InputControl : MonoBehaviour
     }
     private void callExplode()
     {
-        if (expand) return;
-        //explode.Splode();
-        GameObject sliceA = GameObject.Find("Slice_A");
-        GameObject sliceB = GameObject.Find("Slice_B");
-        //GameObject sliceC = GameObject.Find("Slice_C");
-        GameObject sliceD = GameObject.Find("Slice_D");
-        GameObject sliceE = GameObject.Find("Slice_E");
-        float scale = 12;
-        Vector3 startPos = sliceA.transform.position;
-        Vector3 pos = new Vector3(sliceA.transform.position.x + 2 * scale, sliceA.transform.position.y - 0.4f * scale, sliceA.transform.position.z);
-        lerpTo(sliceA, startPos, pos);
+        if (!expand)
+        {
+            try
+            {
+                foreach (GameObject gameObj in GameObject.FindObjectsOfType<GameObject>())
+                {
+                    if (gameObj.name == "Slice_A" && gameObj.transform.root.name == selectModel)
+                    {
+                        gameObj.transform.position = new Vector3(gameObj.transform.position.x+2, gameObj.transform.position.y, gameObj.transform.position.z);
+                    }
+                    if (gameObj.name == "Slice_B" && gameObj.transform.root.name == selectModel)
+                    {
+                        gameObj.transform.position = new Vector3(gameObj.transform.position.x + 1, gameObj.transform.position.y, gameObj.transform.position.z);
+                    }
+                    if (gameObj.name == "Slice_D" && gameObj.transform.root.name == selectModel)
+                    {
+                        gameObj.transform.position = new Vector3(gameObj.transform.position.x -1, gameObj.transform.position.y, gameObj.transform.position.z);
+                    }
+                    if (gameObj.name == "Slice_E" && gameObj.transform.root.name == selectModel)
+                    {
+                        gameObj.transform.position = new Vector3(gameObj.transform.position.x - 2, gameObj.transform.position.y, gameObj.transform.position.z);
+                    }
+                }
+            }
+            catch (Exception) { }
 
-        startPos = sliceB.transform.position;
-        pos = new Vector3(sliceB.transform.position.x + 1 * scale, sliceB.transform.position.y - 0.2f * scale, sliceB.transform.position.z);
-        lerpTo(sliceB, startPos, pos);
 
-        startPos = sliceD.transform.position;
-        pos = new Vector3(sliceD.transform.position.x - 1 * scale, sliceD.transform.position.y + 0.2f * scale, sliceD.transform.position.z);
-        lerpTo(sliceD, startPos, pos);
+            expand = true;
+        }
+        else if (expand)
+        {
+            try
+            {
+                foreach (GameObject gameObj in GameObject.FindObjectsOfType<GameObject>())
+                {
+                    if (gameObj.name == "Slice_A" && gameObj.transform.root.name == selectModel)
+                    {
+                        gameObj.transform.position = new Vector3(gameObj.transform.position.x - 2, gameObj.transform.position.y, gameObj.transform.position.z);
+                    }
+                    if (gameObj.name == "Slice_B" && gameObj.transform.root.name == selectModel)
+                    {
+                        gameObj.transform.position = new Vector3(gameObj.transform.position.x - 1, gameObj.transform.position.y, gameObj.transform.position.z);
+                    }
+                    if (gameObj.name == "Slice_D" && gameObj.transform.root.name == selectModel)
+                    {
+                        gameObj.transform.position = new Vector3(gameObj.transform.position.x + 1, gameObj.transform.position.y, gameObj.transform.position.z);
+                    }
+                    if (gameObj.name == "Slice_E" && gameObj.transform.root.name == selectModel)
+                    {
+                        gameObj.transform.position = new Vector3(gameObj.transform.position.x + 2, gameObj.transform.position.y, gameObj.transform.position.z);
+                    }
+                }
+            }
+            catch (Exception) { }
 
-        startPos = sliceE.transform.position;
-        pos = new Vector3(sliceE.transform.position.x - 2 * scale, sliceE.transform.position.y + 0.4f * scale, sliceE.transform.position.z);
-        lerpTo(sliceE, startPos, pos);
-
-        expand = true;
+            expand = false;
+        }
     }
     public void showColorbuttonBig()
     {

@@ -80,5 +80,4 @@ public class StoreDataManager : MonoBehaviour
         this.norm = norm;
     }
 
-
 }
