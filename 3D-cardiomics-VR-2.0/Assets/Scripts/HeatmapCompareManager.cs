@@ -43,15 +43,17 @@ public class HeatmapCompareManager : MonoBehaviour
                     min = Math.Min(min, Math.Min(int.Parse(de.Value.ToString()), int.Parse(des.Value.ToString())));
                     GameObject.Find("ScriptHolder").GetComponent<Colour>().setModelGameobject(model1);
                     GameObject.Find("ScriptHolder").GetComponent<Colour>().colourHeartPiece(de.Key.ToString(), x, max, min, false);
-                    Debug.Log(de.Key.ToString());
                 }
             }                          
         }
+        String str = model1.GetComponent<StoreDataManager>().getCurrentGene() + " and " + model2.GetComponent<StoreDataManager>().getCurrentGene();
 
         model1.GetComponent<StoreDataManager>().clearTable();
         model2.GetComponent<StoreDataManager>().clearTable();
         gameObject.GetComponent<ObjectManager>().deleteSpecificModel(model2.name);
-        model1.GetComponent<StoreDataManager>().customLabel("Compare");
+        model1.GetComponent<StoreDataManager>().customLabel(str);
+
+        objList.Clear();
     }
 
     public void safeToSH(GameObject obj)
@@ -74,8 +76,7 @@ public class HeatmapCompareManager : MonoBehaviour
 
     private void callHeatmap()
     {
-        Debug.Log(objList[0].name);
-        Debug.Log(objList[1].name);
+
         setModelsToCompare(objList[0], objList[1]);
     }
 

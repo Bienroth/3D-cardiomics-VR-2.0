@@ -8,6 +8,7 @@ public class StoreDataManager : MonoBehaviour
     public Hashtable currentData = new Hashtable();
     public string geneName = "";
     public bool norm = true;
+    public bool doublePush = false;
     int i = 0;
 
     private void Start()
@@ -17,18 +18,22 @@ public class StoreDataManager : MonoBehaviour
 
     public void addData(string heartpiece, string expressionValue)
     {
+
         i++;
         if(i >18)
         {
             i = 0;
             clearTable();
+            doublePush = false;
         }
-        currentData.Add(heartpiece, expressionValue);
+        if (!doublePush) currentData.Add(heartpiece, expressionValue);
         
     }
 
     public void addName(string geneName)
     {
+
+        if (this.geneName == geneName) doublePush = true;
         this.geneName = geneName;
         setLabel(geneName);
     }

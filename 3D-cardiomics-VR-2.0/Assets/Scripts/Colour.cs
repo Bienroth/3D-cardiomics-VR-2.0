@@ -404,7 +404,7 @@ public class Colour : MonoBehaviour
                 //geneOriginalText.text = SentenceCase(geneName);
             }
 
-            //TBD adapt logfile after colorfunction done
+
             //logFile.writeToFile(SentenceCase(geneName), false);
 
         }
@@ -787,6 +787,8 @@ public class Colour : MonoBehaviour
                         
                         gameObj.transform.root.gameObject.GetComponent<StoreDataManager>().setNorm(norm);
                         gameObj.GetComponent<Renderer>().material.color = g.Evaluate(t);
+
+                        logFile.writeToFile(gameObj.transform.root.name, currentGene, norm);
                     }
                 }
             }

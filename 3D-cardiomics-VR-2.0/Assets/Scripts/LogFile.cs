@@ -10,6 +10,7 @@ public class LogFile : MonoBehaviour
     private bool save = true;
     private bool compareModel;
     private bool toggle = true;
+    private int i = 0;
     private InputField geneInput;
     private void Start()
     {
@@ -18,7 +19,7 @@ public class LogFile : MonoBehaviour
         File.WriteAllText(path, "Logfile \n\n" + System.DateTime.Now + "\n \n");
         File.AppendAllText(path, "*********************************************************\n\n");
 
-        File.AppendAllText(path, "Main Gene selected \t\t\t\t Compared with \t\t\t\t Timestamp \n");
+        File.AppendAllText(path, "Number of Object, GeneName, Normlalized, timestamp \n");
         File.AppendAllText(path, "_________________________________________________________________________________\n\n");
     }
     public void compareModelWrite()
@@ -30,60 +31,21 @@ public class LogFile : MonoBehaviour
 
     public void compareModelReset()
     {
-        if (!compareModel) File.AppendAllText(path, "The Combinded View Model was disabled at: " + System.DateTime.Now.ToString("HH:MM:ss") + " due to a reset.\n");
+        if (!compareModel) File.AppendAllText(path, "The Combinded View Model was disabled at: " + System.DateTime.Now.ToString("hh:mm:ss") + " due to a reset.\n");
 
     }
 
 
-    public void writeToFile(string gene, bool copy)
+    public void writeToFile(string obj, string gene, bool norm)
     {
-        gene = gene.Replace("<i>", "");
-        gene = gene.Replace("</i>", "");
+        if(i==0) File.AppendAllText(path, obj + ", " + gene + ", " + norm + ", " + System.DateTime.Now.ToString("HH:MM:ss") + "\n");
 
-        if (save && copy)
-        {
-            //both copies
-            File.AppendAllText(path, "-----\t\t\t\t" + gene + "\t\t\t\t" + System.DateTime.Now.ToString("HH:MM:ss") + "\n");
-
-        }
-        if (!save && !copy)
-        {
-            //both are original 
-            File.AppendAllText(path, "\t\t\t\t------- \t\t\t\t" + System.DateTime.Now.ToString("HH:MM:ss") + "\n");
-            File.AppendAllText(path, gene);
-        }
-        if (!save && copy)
-        {
-            //last copy new original 
-            File.AppendAllText(path, "\t\t\t\t" + gene + "\t\t\t\t" + System.DateTime.Now.ToString("HH:MM:ss") + "\n");
-        }
-        if (save && !copy)
-        {
-            //last copy new original 
-            File.AppendAllText(path, gene);
-        }
-        save = copy;
-    }
-
-    public void exportGenelist(string str)
-    {
-        if (!genelist)
-        {
-            genelistpath = Application.dataPath + "/SimilarGeneList.txt";
-            File.WriteAllText(genelistpath, "Similar Genes compared to: " + SentenceCase(geneInput.text) + " \n\n" + System.DateTime.Now + "\n \n");
-            File.AppendAllText(genelistpath, "*********************************************************\n\n");
-            genelist = true;
-        }
-
-        if (genelist)
-        {
-            if (toggle) File.AppendAllText(genelistpath, SentenceCase(str) + " \t\t");
-            if (!toggle) File.AppendAllText(genelistpath, str + " \n");
-            toggle = !toggle;
-        }
-
+        i++;
+        if (i > 18) i = 0;
 
     }
+
+
     public static string SentenceCase(string input)
     {
         if (input.Length < 1)
