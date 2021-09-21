@@ -70,12 +70,19 @@ public class InputControl : MonoBehaviour
                 if (GameObject.Find("Highlighter") != null)
                 {
                     currentSelection = Int16.Parse(GameObject.Find("Highlighter").transform.root.name);
-                    GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(false);
+                    try { 
+                        GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(false); 
+                    }
+                    catch (Exception) { }
+
                     currentSelection++;
 
                     if (GameObject.Find(currentSelection.ToString()) != null)
                     {
-                        GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(true);
+                        try { 
+                            GameObject.Find(currentSelection.ToString()).transform.GetChild(0).Find("Extensions").Find("Highlighter").transform.gameObject.SetActive(true);
+                        }
+                        catch (Exception) { }
                     }
                     else
                     {

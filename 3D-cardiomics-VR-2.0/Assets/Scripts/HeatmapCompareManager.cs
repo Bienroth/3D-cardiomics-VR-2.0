@@ -13,17 +13,7 @@ public class HeatmapCompareManager : MonoBehaviour
     List<GameObject> objList = new List<GameObject>();
     private int i = 0;
 
-    public void TBDFunction()
-    {
-        // collison if heart grabber and heart grabber → set bool true and wait for ovr released
-        // then get transform.root and cal set Models
-        // change label
-        // delete one of the hearts 
-
-        setModelsToCompare(GameObject.Find("0"), GameObject.Find("1"));
-        readDataForModel();
-    }
-    
+   
     public void setModelsToCompare(GameObject model1, GameObject model2)
     {
         this.model1 = model1;
