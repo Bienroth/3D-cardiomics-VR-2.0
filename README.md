@@ -18,3 +18,30 @@ Currently fully supported VR devices include:
 -  	Oculus Quest / Quest 2 (Link mode)
 -	Oculus Rift / Rift S 
 Other devices may not be fully supported.
+
+## VR-Cardiomics Features
+
+### How to select an expression value
+
+### How to select a model
+
+### Explode Function
+
+### Add/Remove models
+
+### Change between absolute and normalized expression values
+
+### How to use the heatmap comparision
+
+### Export data/images
+
+### Switch between datasets
+
+### Additional features
+
+
+## Upload custom data
+
+### Upload datasets
+
+### upload 3D model
