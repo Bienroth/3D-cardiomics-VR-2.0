@@ -8,7 +8,7 @@ Code for the manuscript: Denis Bienroth<sup>\*</sup>, Hieu T. Nim, Dimitar Garko
 
 VR-Cardiomics is designed to map user generated data onto a user specific 3D model. However, the data and the model must meet certain requirements. Please refer to the chapter #Upload Custom Data for more information on how to use VR-cardiomics as a framework for own data and models on your local machine.
 
-This application supports VR devices as listed below, our [Web applicatipn](https://github.com/Ramialison-Lab/3DCardiomics) and [zSpace](https://github.com/Ramialison-Lab/3DCardiomicsZSpace) are available as well.
+This application supports VR devices as listed below, our [web application](https://github.com/Ramialison-Lab/3DCardiomics) and [zSpace](https://github.com/Ramialison-Lab/3DCardiomicsZSpace) are available as well.
 
 ## Dependencies
 
