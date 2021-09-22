@@ -19,6 +19,8 @@ Currently fully supported VR devices include:
 -	Oculus Rift / Rift S 
 Other devices may not be fully supported.
 
+## How to run VR-Cardiomics
+
 ## VR-Cardiomics Features
 
 ### How to select an expression value
