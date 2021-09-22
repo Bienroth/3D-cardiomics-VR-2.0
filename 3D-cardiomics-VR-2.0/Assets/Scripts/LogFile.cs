@@ -19,7 +19,7 @@ public class LogFile : MonoBehaviour
         File.WriteAllText(path, "Logfile \n\n" + System.DateTime.Now + "\n \n");
         File.AppendAllText(path, "*********************************************************\n\n");
 
-        File.AppendAllText(path, "Number of Object, GeneName, Normlalized, timestamp \n");
+        File.AppendAllText(path, "Number of Object, GeneName, Normalised, timestamp \n");
         File.AppendAllText(path, "_________________________________________________________________________________\n\n");
     }
     public void compareModelWrite()

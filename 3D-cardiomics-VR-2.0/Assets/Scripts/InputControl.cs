@@ -8,7 +8,10 @@ public class InputControl : MonoBehaviour
     //Classes
     private Colour colour;
     //Values
-    private float fscale, initalize, start, save;
+    private float fscale;
+    private float initalize;
+    private float start;
+    private float save;
     private int currentSelection;
     //UI Elements
     public InputField inputfield;
@@ -40,6 +43,7 @@ public class InputControl : MonoBehaviour
     [SerializeField] private Material highlightMaterialGroup2;
     [SerializeField] private Material defaultMaterial;
     private string selectModel = "0";
+    private float tempscale =0;
 
     // Start is called before the first frame update
     void Start()
@@ -213,7 +217,7 @@ public class InputControl : MonoBehaviour
                 if (gameObj.transform.GetComponent<OVRGrabbable>() != null) {
                         if (gameObj.transform.GetComponent<OVRGrabbable>().isGrabbed)
                         {
-                            //TBD enter resize code here
+                        resizeModel(gameObj);
 
                         } 
                 }
@@ -242,16 +246,24 @@ public class InputControl : MonoBehaviour
             // Resize function work around because of increased object sizes due to import
             if (currentlyResize)
             {
-                obj.transform.localScale = new Vector3(initalize, initalize, initalize);
-                fscale = (rightHand.transform.position - leftHand.transform.position).magnitude;
-                initalize = (fscale / start) * save;
+                Vector3 x = (rightHand.transform.position - leftHand.transform.position);
+                fscale = x.magnitude;
+
+                if (fscale < tempscale * 0.8) fscale = tempscale;
+
+
+                float v = (fscale -start/ start);
+                Debug.Log(fscale);
+                obj.transform.localScale += new Vector3(v, v, v);
+
+                tempscale = fscale;
+
             }
             // Resize initializing parameters
             else
             {
-                initalize = obj.transform.localScale.x;
-                save = initalize;
                 start = (rightHand.transform.position - leftHand.transform.position).magnitude;
+                Debug.Log("start" + start);
                 currentlyResize = true;
             }
 
