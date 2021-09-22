@@ -51,3 +51,11 @@ The simplest way to run VR-Cardiomics is by using Unity [2019.4.19f1](https://un
 ### Upload datasets
 
 ### upload 3D model
+
+## Troubleshooting
+### Oculus Quest/ Quest2
+The Oculus Quest and Quest 2 can be used in [Oculus Link](https://www.oculus.com/blog/play-rift-content-on-quest-with-oculus-link-available-now-in-beta/?locale=de_DE) mode. This allows those devices to be treated like an Oculus Rift in wired mode in order to run the application on your local machine rather than on the device itself.  
+
+### VR-Headset not recognized
+If the VR-Headset isn't recognized properly please navigate in Unity from Edit → Project Settings → Player and ensure that *Virtual Reality Supported* is ticked.![VRsupported](https://user-images.githubusercontent.com/79250095/134309050-125952d3-bf16-464e-8f67-9a88e76fb381.png)
+
