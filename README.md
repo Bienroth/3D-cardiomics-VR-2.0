@@ -21,7 +21,7 @@ Other devices may not be fully supported.
 
 ## How to run VR-Cardiomics
 
-The simplest way to run VR-Cardiomics is by using Unity [2019.4.19f1](https://unity3d.com/de/unity/whats-new/2019.4.19). [Copy VR-Cardiomics](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) to your local machine and open it in Unity (Information on how to open an exisiting project in Unity can be found [here](https://docs.unity3d.com/2019.1/Documentation/Manual/GettingStartedOpeningProjects.html)).
+The simplest way to run VR-Cardiomics is by using Unity [2019.4.19f1](https://unity3d.com/de/unity/whats-new/2019.4.19). Copy VR-Cardiomics from [github](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) to your local machine and open it in Unity (Information on how to open an exisiting project in Unity can be found [here](https://docs.unity3d.com/2019.1/Documentation/Manual/GettingStartedOpeningProjects.html)).
 
 *It is recommended to ignore update notifications from Unity in order to ensure that the application is processed as expected.*
 
