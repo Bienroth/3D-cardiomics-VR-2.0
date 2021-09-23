@@ -36,7 +36,7 @@ The simplest way to run VR-Cardiomics is by using Unity [2019.4.19f1](https://un
 
 ### <a name="menu">The menu </a>
 
-The menu panel is used to control all features of VR-Cardiomics. It can be moved by grabbing the pink handle on the left side of the menu.
+The menu panel is used to control all features of VR-Cardiomics. It can be moved by grabbing the pink handle on the left side of the menu. The menu can be used by either touching the buttons directly or pointing on the button an clicking the *A* button of the primary Oculus Controller.
 
 ![menu_2](https://user-images.githubusercontent.com/79250095/134443158-cef43273-3223-4d7f-84a3-599a59c64b30.png)
 
@@ -56,15 +56,26 @@ Menu explanations:
 ### How to select an expression value
 
 1. By default one model will appear in the envrionment once the application is started. If no model appeared please [add a model](#addmodel) and [select it](#select).
-2. Grab the [menu](#menu) panel and touch the inputfield or the keyboard button to enable the keyboard. The menu can be used by either touching the buttons directly or pointing on the button an clicking the *X* button of the Oculus Controller.
+2. Grab the [menu](#menu) panel and touch the inputfield or the keyboard button to enable the keyboard. The menu can be used by either touching the buttons directly or pointing on the button an clicking the *A* button of the primary of the Oculus Controller.
 3. Enter the name of the expression that should be mapped onto the model. The keyboard can be used by either touching the button directly or pointing on the button an clicking the *X* button of the Oculus Controller.
 https://user-images.githubusercontent.com/79250095/134441704-b8db2451-fc6a-4d1b-9400-07ab0c7ded1f.mp4
 
 ### <a name="select">How to select a model</a>
 
+By default the first model in the environemnt is selected. If new models will be added select them using the *hihghlighter function*. This function is enbaled by pressing the *Y* Button of the secondary controller. A red illuminating circle will appear under the selected model. Press the *Y* button again to toggle to the next model. Press *A* on the primary controller to select the current model.
+
+https://user-images.githubusercontent.com/79250095/134447783-f0fbcc7f-b97d-4747-908d-103cc33a71ca.mp4
+
 ### Explode Function
+The explode function will expand the model based on it's hierarchy. this feature might not work properly for custom objects. To toggle between the normal view and the exploded view press the *X* button on the secondary controller. Only the [selected model](#select) will be expanded.
+
+![Screenshot (238)](https://user-images.githubusercontent.com/79250095/134447818-21544de8-5dd4-4689-834d-6c8a84e938db.png)
 
 ### <a name="addmodel">Add/Remove models</a>
+
+VR-Cardiomics allows adding multiple objects to the environment to map expression data onto it. Use the [menu panel](#menu) to add or remove models by pressing either the + or the - button. Keep in mind that always the last model will be deleted once the - button is pressed. The number between the buttons shows how many active objects are currently in the surrounding.
+
+https://user-images.githubusercontent.com/79250095/134448305-e560c958-9470-4d4a-9885-8e2b54f4ad0b.mp4
 
 ### Change between absolute and normalized expression values
 
