@@ -53,13 +53,13 @@ Menu explanations:
 10. Group Selection
 
 
-### How to select an expression value
+### <a name="selectExpression">How to select an expression value </a>
 
 1. By default one model will appear in the envrionment once the application is started. If no model appeared please [add a model](#addmodel) and [select it](#select).
 2. Grab the [menu](#menu) panel and touch the inputfield or the keyboard button to enable the keyboard. The menu can be used by either touching the buttons directly or pointing on the button an clicking the *A* button of the primary of the Oculus Controller.
 3. Enter the name of the expression that should be mapped onto the model. The keyboard can be used by either touching the button directly or pointing on the button an clicking the *X* button of the Oculus Controller.
 
-https://user-images.githubusercontent.com/79250095/134441704-b8db2451-fc6a-4d1b-9400-07ab0c7ded1f.mp4
+https://user-images.githubusercontent.com/79250095/134448551-48a56437-dcbd-42c8-abf5-e7edf90579ef.mp4
 
 ### <a name="select">How to select a model</a>
 
@@ -80,13 +80,35 @@ https://user-images.githubusercontent.com/79250095/134448305-e560c958-9470-4d4a-
 
 ### Change between absolute and normalized expression values
 
+VR-Cardiomics allows to present expression data either in absolute or in normalised values. Our example data is based on log2CPM values for absolute. If [own datatsets](#custom) are used, the absolute values will represent the uploaded values of the csv file. Toggle between Normalised or Absolute by using the [menu panel (9)](#menu).
+
 ### How to use the heatmap comparision
+
+The heatmap comparision is a useful feature to allow calculating the absolute differences of each piece of the object between two expression patterns. The feature will automatically calculate those differences and apply a new colourisation to the model regarding how big the differences in each selected piece are. In order to use the heatmap function just select a expression for two objects and then grab one model with the pink handle. Hold the pink handle onto the handle of a second heart model. Release the trigger Button to enable the heatmap feature.
+
+https://user-images.githubusercontent.com/79250095/134449147-5b535342-94d6-43f2-9e9e-18d4f53ccc0e.mp4
 
 ### Export data/images
 
+VR-Cardiomics allows to export data during runtime. 
+
+1. **Making screenshots** → Simply use the Camera button of the [menu panel(4)](#menu). A Screenshot of the current selected heartmodel will be saved to your local machine. 
+2. **Exporting Similar Expressions** → If a expression value is [selected](#selectExpression) a list of similar expressions will be calculated based on the selection. This list can be exported as a csv file using the export button on the [menu panel (9)](#menu). This CSV file is then saved in the Asset folder of Unity. (Figure: SimilarGenes.txt → blue).
+3. **Logfile** → For each session a logfile will be created to keep track of everything you did during your session. This logfile is saved automatically on your local machine within the Assets folder of Untiy (Figure: SessionLog.txt → green).
+
+![exportFiles](https://user-images.githubusercontent.com/79250095/134449902-41210806-428f-4381-a907-b7e520b89ce5.png)
+
 ### Switch between datasets
 
+VR-Cardiomics allows to upload [own datasets](#custom) with expression values. You can also upload multiple datasets and switch between them during runtime. Therfore navigate to the datset menu by pressing the dataset button of the [menu panel(6)](#menu). Touching your pre-loaded dataset forces a reset of the environemnt with the new dataset beeing used. 
+
+https://user-images.githubusercontent.com/79250095/134450769-7be16fa7-0056-41fb-aeaf-7ddb5b059641.mp4
+
 ### Group Selection
+
+The group selection is a feature that allwos to group a number of pieces of the object together in two groups. Based on those two groups a list of expression values is generated matching the pattern of the selected pieces. 
+To use this feature press the *group Selection* Button on the [menu panel(10)](#menu). All objects will be deleted except of one object. This object can be used to select the pieces of the first group. Just bring the controller at one piece and press the *A* button of the oculus controller to select the piece. The piece will be coloured to confirm the selection. continue with this step until all pieces of group 1 are selceted. Now push the button of the [menu panel(10)](#menu) again to confirm the first group and start selecting new pieces for group 2. If the selection is done just press the button of the [menu panel(10)](#menu) again to confirm selection and start calculating the matching expression values. The results will be shown in the table below. 
+To deselect pieces from the selection just select them anew.
 
 ### Additional features
 
