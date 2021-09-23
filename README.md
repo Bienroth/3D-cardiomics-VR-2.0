@@ -34,13 +34,37 @@ The simplest way to run VR-Cardiomics is by using Unity [2019.4.19f1](https://un
 
 ## <a name="features">VR-Cardiomics Features</a>
 
+### <a name="menu">The menu </a>
+
+The menu panel is used to control all features of VR-Cardiomics. It can be moved by grabbing the pink handle on the left side of the menu.
+
+![menu_2](https://user-images.githubusercontent.com/79250095/134443158-cef43273-3223-4d7f-84a3-599a59c64b30.png)
+
+Menu explanations:
+1. Inputfield for expression value
+2. Switch to current view
+3. Enable/Disable the keyboard
+4. Make an automated screenshot of the current object
+5. Reset the environment
+6. Switch to dataset selection menu
+7. Switch to settings menu
+8. Use the + or - buttons to add or remove objects to the environment
+9. Export and Normalised/Absolute toggle button
+10. Group Selection
+
+
 ### How to select an expression value
 
-### How to select a model
+1. By default one model will appear in the envrionment once the application is started. If no model appeared please [add a model](#addmodel) and [select it](#select).
+2. Grab the [menu](#menu) panel and touch the inputfield or the keyboard button to enable the keyboard. The menu can be used by either touching the buttons directly or pointing on the button an clicking the *X* button of the Oculus Controller.
+3. Enter the name of the expression that should be mapped onto the model. The keyboard can be used by either touching the button directly or pointing on the button an clicking the *X* button of the Oculus Controller.
+https://user-images.githubusercontent.com/79250095/134441704-b8db2451-fc6a-4d1b-9400-07ab0c7ded1f.mp4
+
+### <a name="select">How to select a model</a>
 
 ### Explode Function
 
-### Add/Remove models
+### <a name="addmodel">Add/Remove models</a>
 
 ### Change between absolute and normalized expression values
 
@@ -49,6 +73,8 @@ The simplest way to run VR-Cardiomics is by using Unity [2019.4.19f1](https://un
 ### Export data/images
 
 ### Switch between datasets
+
+### Group Selection
 
 ### Additional features
 
