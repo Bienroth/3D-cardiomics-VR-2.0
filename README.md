@@ -58,6 +58,7 @@ Menu explanations:
 1. By default one model will appear in the envrionment once the application is started. If no model appeared please [add a model](#addmodel) and [select it](#select).
 2. Grab the [menu](#menu) panel and touch the inputfield or the keyboard button to enable the keyboard. The menu can be used by either touching the buttons directly or pointing on the button an clicking the *A* button of the primary of the Oculus Controller.
 3. Enter the name of the expression that should be mapped onto the model. The keyboard can be used by either touching the button directly or pointing on the button an clicking the *X* button of the Oculus Controller.
+
 https://user-images.githubusercontent.com/79250095/134441704-b8db2451-fc6a-4d1b-9400-07ab0c7ded1f.mp4
 
 ### <a name="select">How to select a model</a>
