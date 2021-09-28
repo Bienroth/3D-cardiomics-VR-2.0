@@ -104,11 +104,13 @@ VR-Cardiomics allows to upload [own datasets](#custom) with expression values. Y
 
 https://user-images.githubusercontent.com/79250095/134450769-7be16fa7-0056-41fb-aeaf-7ddb5b059641.mp4
 
-### Group Selection
+### Piecewise Comparison / Group Selection
 
-The group selection is a feature that allwos to group a number of pieces of the object together in two groups. Based on those two groups a list of expression values is generated matching the pattern of the selected pieces. 
+The *piecewise comparison/ group selection* is a feature that allwos to group a number of pieces of the object together in two groups. Based on those two groups a list of expression values is generated matching the pattern of the selected pieces. 
 To use this feature press the *group Selection* Button on the [menu panel(10)](#menu). All objects will be deleted except of one object. This object can be used to select the pieces of the first group. Just bring the controller at one piece and press the *A* button of the oculus controller to select the piece. The piece will be coloured to confirm the selection. continue with this step until all pieces of group 1 are selceted. Now push the button of the [menu panel(10)](#menu) again to confirm the first group and start selecting new pieces for group 2. If the selection is done just press the button of the [menu panel(10)](#menu) again to confirm selection and start calculating the matching expression values. The results will be shown in the table below. 
 To deselect pieces from the selection just select them anew.
+
+https://user-images.githubusercontent.com/79250095/135013053-277ebcd8-6a62-445a-b468-9fe83173c376.mp4
 
 ### Additional features
 
