@@ -98,7 +98,7 @@ VR-Cardiomics allows to export data during runtime.
 
 ![exportFiles](https://user-images.githubusercontent.com/79250095/134449902-41210806-428f-4381-a907-b7e520b89ce5.png)
 
-### Switch between datasets
+### <a name="switchDataset">Switch between datasets</a>
 
 VR-Cardiomics allows to upload [own datasets](#custom) with expression values. You can also upload multiple datasets and switch between them during runtime. Therfore navigate to the datset menu by pressing the dataset button of the [menu panel(6)](#menu). Touching your pre-loaded dataset forces a reset of the environemnt with the new dataset beeing used. 
 
@@ -114,12 +114,44 @@ https://user-images.githubusercontent.com/79250095/135013053-277ebcd8-6a62-445a-
 
 ### Additional features
 
+- Reset the environment by touching the *reset* button of the [menu panel(5)](#menu)
+- Enable or disable the keyboard by touching the *keyboard* button [menu panel(3)](#menu) or by touching the inputfield [menu panel(1)](#menu). The keyboard will alwas spawn infront of the user.
+- Open the settings by touching the *settings* button of the [menu panel(7)](#menu). 
 
 ## <a name="custom">Upload custom data </a>
 
+VR-Cardiomics allows users to upload their own datasets or models. However, since VR-Cardiomics is still a work in progress, certain requirements of the datasets as well as the objects are expected.
+
 ### Upload datasets
 
-### upload 3D model
+VR-Cardiomics allows to upload datasets in csv format. Either as csv or txt files. In order to switch between the datasets, please see chapter [Switch between datasets](#switchDataset). In order to use this feature, the datasets need to be pre-uploaded. Please follow the follwoing instructions:
+
+**Change dataset in editor**
+1. Open VR-Cardiomics in the [Unity editor](#runVR).
+2. Navigate to ```Assets\Ressources```
+3. press right click and select *Import New Asset*
+4. Browse your local machine and select the dataset to be uploaded
+
+![image](https://user-images.githubusercontent.com/79250095/135014485-b13facb0-ed8d-4046-932d-4d7052fc1bdd.png)
+
+**Change dataset in Windows**
+1. Simply navigate to the gitub source code of *VR-Cardiomics** on your local machine.
+2. Navigate to ```..\VR-Cardiomics\Assets\Ressources```
+3. Copy the dataset into the directory
+
+**Customise valid names**
+
+In order to allow VR-Cardiomics to recognise the items of your dataset, please customise the file *valid_names.txt*. This file contains all valid names, which in our case match the example data of *fake_mouse_expression_data8*. the file contains all gene names of MGI version 9. If you want to run VR-cardiomics aas a framework for other data please replace this file with a file containing all the items of your dataset. 
+
+**Example files and structure of datasets**
+This version of *VR-Cardiomics* comes with sample data to use. The dataset is stored in ```Assets\Ressources\fake_mouse_expression.txt```
+
+**Current limitations of the dataset**
+VR-Cardiomics is a work in progress. We developed it to use it on a 18 section slices heart model. Therefore currently only datasets and models with exactly 18 slices are able to be used within the environment. We will take care of this limitation and to allow variable datasets and models as soon as possible.
+
+### Upload 3D model
+
+
 
 ## <a name="trouble">Troubleshooting </a>
 ### Oculus Quest/ Quest2
