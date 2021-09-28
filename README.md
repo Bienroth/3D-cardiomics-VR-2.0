@@ -67,7 +67,7 @@ By default the first model in the environemnt is selected. If new models will be
 
 https://user-images.githubusercontent.com/79250095/134447783-f0fbcc7f-b97d-4747-908d-103cc33a71ca.mp4
 
-### Explode Function
+### <a name="explode">Explode Function</a>
 The explode function will expand the model based on it's hierarchy. this feature might not work properly for custom objects. To toggle between the normal view and the exploded view press the *X* button on the secondary controller. Only the [selected model](#select) will be expanded.
 
 ![Screenshot (238)](https://user-images.githubusercontent.com/79250095/134447818-21544de8-5dd4-4689-834d-6c8a84e938db.png)
@@ -158,7 +158,43 @@ VR-Cardiomics is a work in progress. We developed it to use it on a 18 section s
 
 ### Upload 3D model
 
+VR-Cardiomics uses a heart model which is sliced into 18 pieces. This object can be used with this GitHub code. The model can be viewed in ```Assets/Ressources``` It is saved as a prefab in Unity. For more informations on prefabs in Unity visit [this site](https://docs.unity3d.com/Manual/Prefabs.html). 
+To upload a heart model follow these steps:
+1. Navigate to the folder ```Assets/Ressources``` and press right click and select *Import New Asset*. 
+2. Browse your local machine and select the model you wish to upload.
+3. Drag and Drop (green arrow) the model from the prefab folder to the *inspector* tab into the field *Model Prefab* of the *Object Manager(Script)*. The name of the object will be shown in the selection.
 
+![selectObject](https://user-images.githubusercontent.com/79250095/135017216-5566bd2b-db89-4d90-b73b-36d6dc532ab0.png)
+
+**Limitations to objects**
+
+VR-Cardiomics is a work in progress. We developed it to use it on a 18 section slices heart model. Therefore currently only datasets and models with exactly 18 slices are able to be used within the environment. We will take care of this limitation and to allow variable datasets and models as soon as possible.
+
+Please ensure that the model you are going to upload meets the following requirements:
+1. The object has to be in a unity compatible format such as .obj
+2. The object needs to have a top layer (orange)
+3. The object needs to have exactly five slices (green) due to our limitations, with the names Slice_A, Slice_B, Slice_C, Slice_D and Slice_E. The slices will also be used for the [explode-feature](#explode). Otherwise, if this feature is not required or your model doens't meet a slices hierarchy just divide the objects under the Slices as in the example object. This will not have any effect on the calculation of the values or the visualisation.
+4. The Object needs exactly 18 pieces (blue). These pieces need to have the names as shown in the example. (A_1, A_2 ... E_3). Please divide your objects and name them accordingly.
+
+**Interaction with the pieces** 
+Unity is based on physics. In order to allow the user to grab single pieces as shown in our example, each piece (A_1, A_2 ... E_3) has to have certain physics and scripts attached. Currently it is not possible to attach those scripts automatically during runtime due to a Unity problem. Therefore, if you wish to interact with the single pieces aas shown in the followin figure, you need to attach certain scripts to each of the 18 objects first. This step is optional, the environament works without those scripts and the objects can still be moved in total by using the pink handles of each object.
+
+![SinglePiece](https://user-images.githubusercontent.com/79250095/135018942-c07c7a2c-f387-47ff-af8d-d3b71e1cde6a.png)
+
+Follow these instructions to allow single piece interaction:
+
+1. Mark all the pieces of the object named A_1, A_2 ... E_3 and ensure that the Slices are not marked.
+![image](https://user-images.githubusercontent.com/79250095/135019408-f108d6d5-7cc4-46f5-a9ac-777774b1995f.png)
+2. In the *inspector* tab click the *Add Component* Button on the end of the list and type *OVR Grabbable*. Select the file below and it will be added to all objects.
+![image](https://user-images.githubusercontent.com/79250095/135019585-026110bb-fcf0-4b43-bc55-846fa5bfd082.png)
+3. Again mark all objects as explained in 1. and click *Add Component*. This time type *Rigidbody* and select it from the list. A Component *rigidbody* will be added to all objects. While all objects are still marked please ensure that the boxes are ticked as the following:
+![image](https://user-images.githubusercontent.com/79250095/135019795-ea703042-5de5-4664-91bd-dd797c7601d0.png)
+4. Repeat step 1 to mark all objects and type *Mesh Collider*, select the Mesh Collider Component to add it to the objects. Ensure the selections are as the following:
+![image](https://user-images.githubusercontent.com/79250095/135019904-f1436767-be4b-48bc-9a09-f8ac502c3e42.png)
+
+
+
+![structureObject](https://user-images.githubusercontent.com/79250095/135017833-b74eaf05-3040-4d76-a6d4-6773305bd359.png)
 
 
 ## <a name="trouble">Troubleshooting </a>
