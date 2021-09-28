@@ -144,12 +144,20 @@ VR-Cardiomics allows to upload datasets in csv format. Either as csv or txt file
 In order to allow VR-Cardiomics to recognise the items of your dataset, please customise the file *valid_names.txt*. This file contains all valid names, which in our case match the example data of *fake_mouse_expression_data8*. the file contains all gene names of MGI version 9. If you want to run VR-cardiomics aas a framework for other data please replace this file with a file containing all the items of your dataset. 
 
 **Example files and structure of datasets**
-This version of *VR-Cardiomics* comes with sample data to use. The dataset is stored in ```Assets\Ressources\fake_mouse_expression.txt```
+This version of *VR-Cardiomics* comes with sample data to use. The dataset is stored in ```Assets\Ressources\fake_mouse_expression.txt```. An snippet of the dataset is shown here:
+![image](https://user-images.githubusercontent.com/79250095/135015941-16cef151-9b09-4a66-ad2a-860888ff798b.png)
+
+Each line of a customised dataset has to start with the items name, followed by exactly 18 expression values in csv format, due to the current limitations as explained below.
+Once the dataset and the *valid_names* are customised, open the file ```Assets\Currentfile.txt``` and replace the name with the filename of your dataset (without endings such as .txt) (blue frame) or select the **ScriptHolder** Object in the **Hierarchy** tab and replace the name in the *CSV Name* field in the *Colour(Script)* in the *Inspector* tab (green frame).
+
+![csvName](https://user-images.githubusercontent.com/79250095/135016348-44577ed7-4620-4b22-a2f8-a25257aa9dd2.png)
+
 
 **Current limitations of the dataset**
 VR-Cardiomics is a work in progress. We developed it to use it on a 18 section slices heart model. Therefore currently only datasets and models with exactly 18 slices are able to be used within the environment. We will take care of this limitation and to allow variable datasets and models as soon as possible.
 
 ### Upload 3D model
+
 
 
 
