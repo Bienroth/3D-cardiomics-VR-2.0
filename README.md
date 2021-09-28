@@ -189,7 +189,7 @@ Follow these instructions to allow single piece interaction:
 ![image](https://user-images.githubusercontent.com/79250095/135019585-026110bb-fcf0-4b43-bc55-846fa5bfd082.png)
 3. Again mark all objects as explained in 1. and click *Add Component*. This time type *Rigidbody* and select it from the list. A Component *rigidbody* will be added to all objects. While all objects are still marked please ensure that the boxes are ticked as the following:
 ![image](https://user-images.githubusercontent.com/79250095/135019795-ea703042-5de5-4664-91bd-dd797c7601d0.png)
-4. Repeat step 1 to mark all objects and type *Mesh Collider*, select the Mesh Collider Component to add it to the objects. Ensure the selections are as the following:
+4. Repeat step 1 to mark all objects and type *Mesh Collider*, select the Mesh Collider Component to add it to the objects. While all objects are still marked please ensure that the boxes are ticked as the following:
 ![image](https://user-images.githubusercontent.com/79250095/135019904-f1436767-be4b-48bc-9a09-f8ac502c3e42.png)
 
 
